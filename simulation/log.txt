@@ -1,0 +1,148 @@
+(16:09:45:483)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(16:09:45:484)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(16:10:59:732)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(16:10:59:733)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(16:13:20:539)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(16:13:20:540)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(16:18:22:403)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(16:18:22:404)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(16:19:47:730)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(16:19:47:731)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(16:20:36:858)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(16:20:36:859)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(16:21:59:588)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(16:21:59:589)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(16:23:13:359)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(16:23:13:360)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(16:26:48:827)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(16:26:48:828)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(16:32:23:340)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(16:32:23:341)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(16:33:07:922)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(16:33:07:923)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(16:35:39:852)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(16:35:39:853)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(16:40:32:266)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(16:40:32:267)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(16:48:24:701)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(16:48:24:702)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(16:48:57:042)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(16:48:57:042)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(16:49:56:138)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(16:49:56:138)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(17:10:21:026)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(17:10:21:027)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(17:11:04:769)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(17:11:04:770)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(17:18:56:566)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(17:18:56:566)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(17:26:05:482)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(17:26:05:483)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(17:29:41:576)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(17:29:41:577)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(17:30:11:152)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(17:30:11:153)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(17:34:03:853)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(17:34:03:854)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(17:37:07:056)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(17:37:07:056)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(17:45:26:150)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(17:45:26:151)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(17:46:41:771)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(17:46:41:771)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(17:47:56:274)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(17:47:56:275)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(17:57:00:262)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(17:57:00:262)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(18:07:10:602)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(18:07:10:603)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(18:08:35:379)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(18:08:35:380)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(18:11:01:342)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(18:11:01:343)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(18:13:35:585)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(18:13:35:599)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(18:15:03:400)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(18:15:03:401)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(18:15:57:469)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(18:15:57:470)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(18:24:08:957)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(18:24:08:958)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(18:27:49:515)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(18:27:49:516)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(18:29:41:463)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(18:29:41:466)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(18:44:40:893)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(18:44:40:900)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(18:47:23:140)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(18:47:23:141)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(18:48:11:453)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(18:48:11:454)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(18:51:20:888)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(18:51:20:889)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(18:52:36:444)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(18:52:36:445)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(18:57:20:106)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(18:57:20:106)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(19:01:00:377)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(19:01:00:377)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(19:12:44:939)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(19:12:45:068)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(11:17:43:066)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(11:17:43:187)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(11:20:12:778)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(11:20:12:903)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(11:24:20:425)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(11:24:20:542)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(11:26:58:178)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(11:26:58:315)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(11:43:11:026)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(11:43:11:115)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(11:54:14:899)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(11:54:15:020)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(11:57:01:226)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(11:57:01:329)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(11:57:49:317)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(11:57:49:414)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(12:00:06:150)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(12:00:06:249)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(12:02:29:257)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(12:02:29:358)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(12:04:06:545)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(12:04:06:649)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(12:06:10:059)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(12:06:10:187)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(12:08:06:559)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(12:08:06:685)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(12:11:00:591)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(12:11:00:714)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(12:17:45:200)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(12:17:45:313)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(12:21:35:049)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(12:21:35:132)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(12:22:57:155)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(12:22:57:247)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(12:24:49:911)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(12:24:50:003)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(12:25:17:384)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(12:25:17:477)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(11:07:12:298)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(11:07:12:436)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(11:07:45:483)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(11:07:45:620)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(11:11:56:600)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(11:11:56:753)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(11:16:39:356)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(11:16:39:469)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(11:17:04:960)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(11:17:05:056)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(11:17:39:909)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(11:17:40:004)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(11:21:28:339)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(11:21:28:434)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(11:25:25:698)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(11:25:25:814)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(11:28:03:003)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(11:28:03:098)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded
+(11:34:27:901)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache start
+(11:34:27:990)[INFO]: cz.cvut.fel.aic.amodsim.tripUtil.TripsUtilCached: Loading cache finished - 0 trips loaded

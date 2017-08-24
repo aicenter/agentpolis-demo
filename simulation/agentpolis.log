@@ -1,0 +1,11 @@
+11:34:27 [INFO ] (SimulationCreator.java:190) - Loaded log4j properties
+11:34:27 [INFO ] (SimulationCreator.java:159) - Setting up Alite simulation modul
+11:34:27 [INFO ] (SimulationCreator.java:163) - Set up Alite simulation modul
+11:34:27 [INFO ] (SimulationCreator.java:100) - >>> MAPS CREATION
+11:34:27 [INFO ] (SimulationCreator.java:167) - Creating instance of environment
+11:34:27 [INFO ] (SimulationCreator.java:170) - Created instance of environment
+11:34:27 [WARN ] (StandardTimeProvider.java:55) - Init day is not day start (00:00). It will be set to the start of the day.
+11:34:27 [INFO ] (SimulationCreator.java:220) - Initializing Visio
+11:34:28 [INFO ] (SimulationCreator.java:223) - Initialized Visio
+11:34:28 [INFO ] (SimulationCreator.java:121) - Simulation - init time: 275 ms
+11:34:28 [INFO ] (Simulation.java:92) - >>> SIMULATION START
