@@ -524,3 +524,27 @@
 2017-08-24 11:34:27 [INFO ]: cz.cvut.fel.aic.amodsim.MapInitializer - Graphs imported, highway graph details: Graph [#nodes=56170, #edges=124243]
 2017-08-24 11:34:27 [DEBUG]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - SEED = 0
 2017-08-24 11:34:27 [INFO ]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - Loading log4j properties
+2017-08-31 04:21:19 [INFO ]: hsqldb.db.HSQLDB4AD417742A.ENGINE - dataFileCache open start
+2017-08-31 04:21:22 [INFO ]: cz.cvut.fel.aic.agentpolis.demo.MapInitializer - Graphs imported, highway graph details: Graph [#nodes=56170, #edges=124243]
+2017-08-31 04:21:22 [DEBUG]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - SEED = 0
+2017-08-31 04:21:22 [INFO ]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - Loading log4j properties
+2017-08-31 04:31:33 [INFO ]: hsqldb.db.HSQLDB4AD417742A.ENGINE - dataFileCache open start
+2017-08-31 04:31:36 [INFO ]: cz.cvut.fel.aic.agentpolis.demo.MapInitializer - Graphs imported, highway graph details: Graph [#nodes=56170, #edges=124243]
+2017-08-31 04:31:36 [DEBUG]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - SEED = 0
+2017-08-31 04:31:36 [INFO ]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - Loading log4j properties
+2017-08-31 04:35:57 [INFO ]: hsqldb.db.HSQLDB4AD417742A.ENGINE - dataFileCache open start
+2017-08-31 04:35:59 [INFO ]: cz.cvut.fel.aic.agentpolis.demo.MapInitializer - Graphs imported, highway graph details: Graph [#nodes=56170, #edges=124243]
+2017-08-31 04:35:59 [DEBUG]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - SEED = 0
+2017-08-31 04:35:59 [INFO ]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - Loading log4j properties
+2017-08-31 04:37:33 [INFO ]: hsqldb.db.HSQLDB4AD417742A.ENGINE - dataFileCache open start
+2017-08-31 04:37:35 [INFO ]: cz.cvut.fel.aic.agentpolis.demo.MapInitializer - Graphs imported, highway graph details: Graph [#nodes=56170, #edges=124243]
+2017-08-31 04:37:35 [DEBUG]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - SEED = 0
+2017-08-31 04:37:35 [INFO ]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - Loading log4j properties
+2017-08-31 04:42:28 [INFO ]: hsqldb.db.HSQLDB4AD417742A.ENGINE - dataFileCache open start
+2017-08-31 04:42:30 [INFO ]: cz.cvut.fel.aic.agentpolis.demo.MapInitializer - Graphs imported, highway graph details: Graph [#nodes=56170, #edges=124243]
+2017-08-31 04:42:30 [DEBUG]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - SEED = 0
+2017-08-31 04:42:30 [INFO ]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - Loading log4j properties
+2017-08-31 04:46:36 [INFO ]: hsqldb.db.HSQLDB4AD417742A.ENGINE - dataFileCache open start
+2017-08-31 04:46:38 [INFO ]: cz.cvut.fel.aic.agentpolis.demo.MapInitializer - Graphs imported, highway graph details: Graph [#nodes=56170, #edges=124243]
+2017-08-31 04:46:38 [DEBUG]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - SEED = 0
+2017-08-31 04:46:38 [INFO ]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - Loading log4j properties

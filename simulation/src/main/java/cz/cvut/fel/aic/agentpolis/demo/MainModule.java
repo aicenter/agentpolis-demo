@@ -9,18 +9,8 @@ import com.google.common.collect.Sets;
 import com.google.inject.Provides;
 import com.google.inject.Singleton;
 import com.google.inject.TypeLiteral;
-import com.google.inject.assistedinject.FactoryModuleBuilder;
 import com.google.inject.name.Names;
 import cz.cvut.fel.aic.agentpolis.demo.config.Config;
-import cz.cvut.fel.aic.agentpolis.demo.entity.DemandAgent;
-import cz.cvut.fel.aic.agentpolis.demo.entity.DemandAgent.DemandAgentFactory;
-import cz.cvut.fel.aic.agentpolis.demo.entity.vehicle.OnDemandVehicle;
-import cz.cvut.fel.aic.agentpolis.siminfrastructure.planner.TripsUtil;
-import cz.cvut.fel.aic.agentpolis.simmodel.activity.activityFactory.PhysicalVehicleDriveFactory;
-import cz.cvut.fel.aic.agentpolis.simmodel.activity.activityFactory.StandardDriveFactory;
-import cz.cvut.fel.aic.agentpolis.demo.tripUtil.TripsUtilCached;
-import cz.cvut.fel.aic.agentpolis.demo.visio.DemandLayer;
-import cz.cvut.fel.aic.agentpolis.demo.visio.DemandLayerWithJitter;
 import cz.cvut.fel.aic.agentpolis.demo.visio.AmodsimVisioInItializer;
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.EntityStorage;
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.VehicleStorage;
@@ -28,8 +18,6 @@ import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.elements
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.networks.AllNetworkNodes;
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.networks.HighwayNetwork;
 import cz.cvut.fel.aic.agentpolis.simulator.visualization.visio.VisioInitializer;
-import cz.cvut.fel.aic.agentpolis.demo.entity.vehicle.OnDemandVehicleFactorySpec;
-import cz.cvut.fel.aic.agentpolis.demo.entity.vehicle.RideSharingOnDemandVehicle;
 import cz.cvut.fel.aic.agentpolis.system.StandardAgentPolisModule;
 import cz.cvut.fel.aic.geographtools.util.Transformer;
 import cz.cvut.fel.aic.geographtools.TransportMode;
@@ -59,8 +47,6 @@ public class MainModule extends StandardAgentPolisModule {
 
     @Override
     protected void configureNext() {
-        bindConstant().annotatedWith(Names.named("precomputedPaths")).to(false);
-
         bind(File.class).annotatedWith(Names.named("osm File")).toInstance(new File(amodsimConfig.mapFilePath));
 
         bind(new TypeLiteral<Set<TransportMode>>() {}).toInstance(Sets.immutableEnumSet(TransportMode.CAR));
@@ -69,23 +55,9 @@ public class MainModule extends StandardAgentPolisModule {
 
         bind(EntityStorage.class).to(VehicleStorage.class);
 
-        if (amodsimConfig.agentpolis.useTripCache) {
-            bind(TripsUtil.class).to(TripsUtilCached.class);
-        }
-        bind(DemandLayer.class).to(DemandLayerWithJitter.class);
 
-        bind(PhysicalVehicleDriveFactory.class).to(StandardDriveFactory.class);
+      //  bind(PhysicalVehicleDriveFactory.class).to(StandardDriveFactory.class);
 
-        if (amodsimConfig.agentpolis.ridesharing) {
-            install(new FactoryModuleBuilder().implement(OnDemandVehicle.class, RideSharingOnDemandVehicle.class)
-                    .build(OnDemandVehicleFactorySpec.class));
-        } else {
-            install(new FactoryModuleBuilder().implement(OnDemandVehicle.class, OnDemandVehicle.class)
-                    .build(OnDemandVehicleFactorySpec.class));
-        }
-
-        install(new FactoryModuleBuilder().implement(DemandAgent.class, DemandAgent.class)
-                .build(DemandAgentFactory.class));
     }
 
     @Provides
