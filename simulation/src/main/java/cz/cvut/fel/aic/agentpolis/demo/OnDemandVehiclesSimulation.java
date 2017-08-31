@@ -5,7 +5,6 @@ package cz.cvut.fel.aic.agentpolis.demo;
 import ninja.fido.config.Configuration;
 import com.google.inject.Injector;
 import cz.cvut.fel.aic.agentpolis.demo.config.Config;
-import cz.cvut.fel.aic.agentpolis.demo.init.EventInitializer;
 import cz.cvut.fel.aic.agentpolis.system.AgentPolisInitializer;
 import cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator;
 import java.net.MalformedURLException;

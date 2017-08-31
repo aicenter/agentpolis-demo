@@ -52,27 +52,5 @@ public class MainModule extends StandardAgentPolisModule {
         bind(new TypeLiteral<Set<TransportMode>>() {}).toInstance(Sets.immutableEnumSet(TransportMode.CAR));
         bind(Config.class).toInstance(amodsimConfig);
         bind(Transformer.class).toInstance(new Transformer(amodsimConfig.srid));
-
-        bind(EntityStorage.class).to(VehicleStorage.class);
-
-
-      //  bind(PhysicalVehicleDriveFactory.class).to(StandardDriveFactory.class);
-
     }
-
-    @Provides
-    @Singleton
-    Map<Long, SimulationNode> provideNodesMappedByNodeSourceIds(HighwayNetwork highwayNetwork, AllNetworkNodes allNetworkNodes) {
-        Map<Long, Integer> nodeIdsMappedByNodeSourceIds = highwayNetwork.getNetwork().createSourceIdToNodeIdMap();
-        Map<Long, SimulationNode> nodesMappedByNodeSourceIds = new HashMap<>();
-
-        for (Map.Entry<Long, Integer> entry : nodeIdsMappedByNodeSourceIds.entrySet()) {
-            Long key = entry.getKey();
-            Integer value = entry.getValue();
-            nodesMappedByNodeSourceIds.put(key, allNetworkNodes.getNode(value));
-        }
-
-        return nodesMappedByNodeSourceIds;
-    }
-
 }

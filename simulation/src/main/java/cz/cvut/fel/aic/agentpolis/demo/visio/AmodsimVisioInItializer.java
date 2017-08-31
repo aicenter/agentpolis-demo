@@ -26,7 +26,6 @@ import cz.cvut.fel.aic.alite.vis.VisManager;
 import cz.cvut.fel.aic.alite.vis.layer.VisLayer;
 import cz.cvut.fel.aic.alite.vis.layer.common.ColorLayer;
 import cz.cvut.fel.aic.agentpolis.simulator.visualization.visio.GridLayer;
-import cz.cvut.fel.aic.agentpolis.demo.init.drive.CarLayer;
 import java.awt.Color;
 
 /**

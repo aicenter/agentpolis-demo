@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cz.cvut.fel.aic.agentpolis.demo.init;
+package cz.cvut.fel.aic.agentpolis.demo;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
@@ -19,9 +19,6 @@ import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.EGraphTy
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.elements.SimulationEdge;
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.elements.SimulationNode;
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.networks.TransportNetworks;
-import cz.cvut.fel.aic.agentpolis.demo.init.drive.DriveAgent;
-import cz.cvut.fel.aic.agentpolis.demo.init.drive.DriveAgentStorage;
-import cz.cvut.fel.aic.agentpolis.demo.init.support.mock.CongestionTestType;
 import cz.cvut.fel.aic.geographtools.Graph;
 import java.util.LinkedList;
 import java.util.List;
@@ -119,7 +116,7 @@ public class EventInitializer {
             SimulationNode finishNode = (SimulationNode) nodes.get(1);
 
             //set id in name
-            PhysicalVehicle vehicle = new PhysicalVehicle("Test vehicle " + COUNTER_ID, CongestionTestType.TEST_VEHICLE, 5, 2, EGraphType.HIGHWAY, startNode, 15); //my starting point
+            PhysicalVehicle vehicle = new PhysicalVehicle("Test vehicle " + COUNTER_ID, DemoType.VEHICLE, 5, 2, EGraphType.HIGHWAY, startNode, 15); //my starting point
             //set id in name
             DriveAgent driveAgent = new DriveAgent("Test driver " + COUNTER_ID, startNode); //my starting point
 

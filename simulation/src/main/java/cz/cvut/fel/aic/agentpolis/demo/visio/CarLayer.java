@@ -1,8 +1,10 @@
 /*
  */
-package cz.cvut.fel.aic.agentpolis.demo.init.drive;
+package cz.cvut.fel.aic.agentpolis.demo.visio;
 
 import com.google.inject.Inject;
+import cz.cvut.fel.aic.agentpolis.demo.DriveAgent;
+import cz.cvut.fel.aic.agentpolis.demo.DriveAgentStorage;
 
 import cz.cvut.fel.aic.alite.vis.Vis;
 import cz.cvut.fel.aic.agentpolis.simmodel.entity.vehicle.Vehicle;
