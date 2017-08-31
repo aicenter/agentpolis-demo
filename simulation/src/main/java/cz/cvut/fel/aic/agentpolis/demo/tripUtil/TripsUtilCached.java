@@ -10,6 +10,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import cz.cvut.fel.aic.agentpolis.demo.config.Config;
 import cz.cvut.fel.aic.agentpolis.siminfrastructure.Log;
 import cz.cvut.fel.aic.agentpolis.demo.entity.DemandAgent;
 import cz.cvut.fel.aic.agentpolis.demo.jackson.MyModule;
@@ -23,7 +24,6 @@ import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.NearestE
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.networks.HighwayNetwork;
 import cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator;
 import cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationFinishedListener;
-import cz.cvut.fel.aic.agentpolis.config.Config;
 
 import java.io.File;
 import java.io.IOException;

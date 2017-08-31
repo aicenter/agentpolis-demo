@@ -7,10 +7,11 @@ package cz.cvut.fel.aic.agentpolis.demo.init;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import cz.cvut.fel.aic.agentpolis.demo.config.Config;
 import cz.cvut.fel.aic.agentpolis.demo.io.TimeTrip;
-import cz.agents.alite.common.event.Event;
-import cz.agents.alite.common.event.EventHandlerAdapter;
-import cz.agents.alite.common.event.EventProcessor;
+import cz.cvut.fel.aic.alite.common.event.Event;
+import cz.cvut.fel.aic.alite.common.event.EventHandlerAdapter;
+import cz.cvut.fel.aic.alite.common.event.EventProcessor;
 import cz.cvut.fel.aic.agentpolis.siminfrastructure.planner.trip.Trip;
 import cz.cvut.fel.aic.agentpolis.simmodel.activity.activityFactory.StandardDriveFactory;
 import cz.cvut.fel.aic.agentpolis.simmodel.entity.vehicle.PhysicalVehicle;
@@ -18,7 +19,6 @@ import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.EGraphTy
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.elements.SimulationEdge;
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.elements.SimulationNode;
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.networks.TransportNetworks;
-import cz.cvut.fel.aic.agentpolis.config.Config;
 import cz.cvut.fel.aic.agentpolis.demo.init.drive.DriveAgent;
 import cz.cvut.fel.aic.agentpolis.demo.init.drive.DriveAgentStorage;
 import cz.cvut.fel.aic.agentpolis.demo.init.support.mock.CongestionTestType;

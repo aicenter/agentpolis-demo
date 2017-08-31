@@ -11,6 +11,7 @@ import com.google.inject.Singleton;
 import com.google.inject.TypeLiteral;
 import com.google.inject.assistedinject.FactoryModuleBuilder;
 import com.google.inject.name.Names;
+import cz.cvut.fel.aic.agentpolis.demo.config.Config;
 import cz.cvut.fel.aic.agentpolis.demo.entity.DemandAgent;
 import cz.cvut.fel.aic.agentpolis.demo.entity.DemandAgent.DemandAgentFactory;
 import cz.cvut.fel.aic.agentpolis.demo.entity.vehicle.OnDemandVehicle;
@@ -27,7 +28,6 @@ import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.elements
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.networks.AllNetworkNodes;
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.networks.HighwayNetwork;
 import cz.cvut.fel.aic.agentpolis.simulator.visualization.visio.VisioInitializer;
-import cz.cvut.fel.aic.agentpolis.config.Config;
 import cz.cvut.fel.aic.agentpolis.demo.entity.vehicle.OnDemandVehicleFactorySpec;
 import cz.cvut.fel.aic.agentpolis.demo.entity.vehicle.RideSharingOnDemandVehicle;
 import cz.cvut.fel.aic.agentpolis.system.StandardAgentPolisModule;
@@ -63,8 +63,7 @@ public class MainModule extends StandardAgentPolisModule {
 
         bind(File.class).annotatedWith(Names.named("osm File")).toInstance(new File(amodsimConfig.mapFilePath));
 
-        bind(new TypeLiteral<Set<TransportMode>>() {
-        }).toInstance(Sets.immutableEnumSet(TransportMode.CAR));
+        bind(new TypeLiteral<Set<TransportMode>>() {}).toInstance(Sets.immutableEnumSet(TransportMode.CAR));
         bind(Config.class).toInstance(amodsimConfig);
         bind(Transformer.class).toInstance(new Transformer(amodsimConfig.srid));
 
