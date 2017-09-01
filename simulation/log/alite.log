@@ -548,3 +548,235 @@
 2017-08-31 04:46:38 [INFO ]: cz.cvut.fel.aic.agentpolis.demo.MapInitializer - Graphs imported, highway graph details: Graph [#nodes=56170, #edges=124243]
 2017-08-31 04:46:38 [DEBUG]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - SEED = 0
 2017-08-31 04:46:38 [INFO ]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - Loading log4j properties
+2017-09-01 11:36:11 [INFO ]: hsqldb.db.HSQLDB4AD417742A.ENGINE - dataFileCache open start
+2017-09-01 11:36:13 [INFO ]: cz.cvut.fel.aic.agentpolis.demo.MapInitializer - Graphs imported, highway graph details: Graph [#nodes=56170, #edges=124243]
+2017-09-01 11:36:13 [DEBUG]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - SEED = 0
+2017-09-01 11:36:13 [INFO ]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - Loading log4j properties
+2017-09-01 11:38:46 [INFO ]: hsqldb.db.HSQLDB4AD417742A.ENGINE - dataFileCache open start
+2017-09-01 11:38:47 [WARN ]: cz.cvut.fel.aic.graphimporter.GraphCreator - Cannot perform deserialization of the cached graphs:edges.geojson.ser (Adresář nebo soubor neexistuje)
+2017-09-01 11:38:47 [WARN ]: cz.cvut.fel.aic.graphimporter.GraphCreator - Generating graphs from the OSM
+2017-09-01 11:38:47 [INFO ]: cz.cvut.fel.aic.graphimporter.geojson.GeoJSONReader - Parsing of geojson started...
+2017-09-01 11:38:47 [INFO ]: cz.cvut.fel.aic.graphimporter.geojson.GeoJSONReader - Parsing of GeoJSON finished in 273ms
+2017-09-01 11:38:47 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Calculating main components for all modes...
+2017-09-01 11:38:47 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Removed 0 edges.
+2017-09-01 11:38:47 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Removed 0 nodes.
+2017-09-01 11:38:47 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Nodes by degree: 
+2017-09-01 11:38:47 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 2->88
+2017-09-01 11:38:47 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 3->30
+2017-09-01 11:38:47 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 4->42
+2017-09-01 11:38:47 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 5->36
+2017-09-01 11:38:47 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 6->171
+2017-09-01 11:38:47 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 7->16
+2017-09-01 11:38:47 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 8->35
+2017-09-01 11:38:47 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Graph [#nodes=418, #edges=1016] simplification
+2017-09-01 11:38:47 [DEBUG]: cz.cvut.fel.aic.graphimporter.structurebuilders.TmpGraphBuilder - Created graph contains following nodes:
+2017-09-01 11:38:47 [DEBUG]: cz.cvut.fel.aic.graphimporter.structurebuilders.TmpGraphBuilder - cz.cvut.fel.aic.graphimporter.structurebuilders.internal.InternalNode: 418
+2017-09-01 11:38:47 [DEBUG]: cz.cvut.fel.aic.graphimporter.structurebuilders.TmpGraphBuilder - Created graph contains following edges:
+2017-09-01 11:38:47 [DEBUG]: cz.cvut.fel.aic.graphimporter.structurebuilders.TmpGraphBuilder - cz.cvut.fel.aic.graphimporter.structurebuilders.internal.InternalEdge: 1016
+2017-09-01 11:38:47 [INFO ]: cz.cvut.fel.aic.agentpolis.demo.MapInitializer - Graphs imported, highway graph details: Graph [#nodes=418, #edges=1016]
+2017-09-01 11:38:47 [DEBUG]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - SEED = 0
+2017-09-01 11:38:47 [INFO ]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - Loading log4j properties
+2017-09-01 11:40:04 [INFO ]: hsqldb.db.HSQLDB4AD417742A.ENGINE - dataFileCache open start
+2017-09-01 11:40:05 [INFO ]: cz.cvut.fel.aic.agentpolis.demo.MapInitializer - Graphs imported, highway graph details: Graph [#nodes=418, #edges=1016]
+2017-09-01 11:40:05 [DEBUG]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - SEED = 0
+2017-09-01 11:40:05 [INFO ]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - Loading log4j properties
+2017-09-01 11:42:22 [INFO ]: hsqldb.db.HSQLDB4AD417742A.ENGINE - dataFileCache open start
+2017-09-01 11:42:23 [INFO ]: cz.cvut.fel.aic.agentpolis.demo.MapInitializer - Graphs imported, highway graph details: Graph [#nodes=418, #edges=1016]
+2017-09-01 11:42:23 [DEBUG]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - SEED = 0
+2017-09-01 11:42:23 [INFO ]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - Loading log4j properties
+2017-09-01 11:43:04 [INFO ]: hsqldb.db.HSQLDB4AD417742A.ENGINE - dataFileCache open start
+2017-09-01 11:43:05 [INFO ]: cz.cvut.fel.aic.agentpolis.demo.MapInitializer - Graphs imported, highway graph details: Graph [#nodes=418, #edges=1016]
+2017-09-01 11:43:05 [DEBUG]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - SEED = 0
+2017-09-01 11:43:05 [INFO ]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - Loading log4j properties
+2017-09-01 11:49:46 [INFO ]: hsqldb.db.HSQLDB4AD417742A.ENGINE - dataFileCache open start
+2017-09-01 11:49:47 [INFO ]: cz.cvut.fel.aic.agentpolis.demo.MapInitializer - Graphs imported, highway graph details: Graph [#nodes=418, #edges=1016]
+2017-09-01 11:49:47 [DEBUG]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - SEED = 0
+2017-09-01 11:49:47 [INFO ]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - Loading log4j properties
+2017-09-01 12:28:47 [INFO ]: hsqldb.db.HSQLDB4AD417742A.ENGINE - dataFileCache open start
+2017-09-01 12:28:50 [INFO ]: cz.cvut.fel.aic.agentpolis.demo.MapInitializer - Graphs imported, highway graph details: Graph [#nodes=418, #edges=1016]
+2017-09-01 12:28:50 [DEBUG]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - SEED = 0
+2017-09-01 12:28:50 [INFO ]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - Loading log4j properties
+2017-09-01 12:29:29 [INFO ]: hsqldb.db.HSQLDB4AD417742A.ENGINE - dataFileCache open start
+2017-09-01 12:29:30 [WARN ]: cz.cvut.fel.aic.graphimporter.GraphCreator - Cannot perform deserialization of the cached graphs:edges.geojson.ser (Adresář nebo soubor neexistuje)
+2017-09-01 12:29:30 [WARN ]: cz.cvut.fel.aic.graphimporter.GraphCreator - Generating graphs from the OSM
+2017-09-01 12:29:30 [INFO ]: cz.cvut.fel.aic.graphimporter.geojson.GeoJSONReader - Parsing of geojson started...
+2017-09-01 12:29:30 [INFO ]: cz.cvut.fel.aic.graphimporter.geojson.GeoJSONReader - Parsing of GeoJSON finished in 319ms
+2017-09-01 12:29:30 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Calculating main components for all modes...
+2017-09-01 12:29:30 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Removed 0 edges.
+2017-09-01 12:29:30 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Removed 0 nodes.
+2017-09-01 12:29:30 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Nodes by degree: 
+2017-09-01 12:29:30 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 2->88
+2017-09-01 12:29:30 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 3->30
+2017-09-01 12:29:30 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 4->28
+2017-09-01 12:29:30 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 5->36
+2017-09-01 12:29:30 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 6->171
+2017-09-01 12:29:30 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 7->16
+2017-09-01 12:29:30 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 8->35
+2017-09-01 12:29:30 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Graph [#nodes=404, #edges=988] simplification
+2017-09-01 12:29:30 [DEBUG]: cz.cvut.fel.aic.graphimporter.structurebuilders.TmpGraphBuilder - Created graph contains following nodes:
+2017-09-01 12:29:30 [DEBUG]: cz.cvut.fel.aic.graphimporter.structurebuilders.TmpGraphBuilder - cz.cvut.fel.aic.graphimporter.structurebuilders.internal.InternalNode: 404
+2017-09-01 12:29:30 [DEBUG]: cz.cvut.fel.aic.graphimporter.structurebuilders.TmpGraphBuilder - Created graph contains following edges:
+2017-09-01 12:29:30 [DEBUG]: cz.cvut.fel.aic.graphimporter.structurebuilders.TmpGraphBuilder - cz.cvut.fel.aic.graphimporter.structurebuilders.internal.InternalEdge: 988
+2017-09-01 12:29:30 [INFO ]: cz.cvut.fel.aic.agentpolis.demo.MapInitializer - Graphs imported, highway graph details: Graph [#nodes=404, #edges=988]
+2017-09-01 12:29:30 [DEBUG]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - SEED = 0
+2017-09-01 12:29:30 [INFO ]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - Loading log4j properties
+2017-09-01 12:30:21 [INFO ]: hsqldb.db.HSQLDB4AD417742A.ENGINE - dataFileCache open start
+2017-09-01 12:30:22 [WARN ]: cz.cvut.fel.aic.graphimporter.GraphCreator - Cannot perform deserialization of the cached graphs:edges.geojson.ser (Adresář nebo soubor neexistuje)
+2017-09-01 12:30:22 [WARN ]: cz.cvut.fel.aic.graphimporter.GraphCreator - Generating graphs from the OSM
+2017-09-01 12:30:22 [INFO ]: cz.cvut.fel.aic.graphimporter.geojson.GeoJSONReader - Parsing of geojson started...
+2017-09-01 12:30:22 [INFO ]: cz.cvut.fel.aic.graphimporter.geojson.GeoJSONReader - Parsing of GeoJSON finished in 199ms
+2017-09-01 12:30:22 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Calculating main components for all modes...
+2017-09-01 12:30:22 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Removed 0 edges.
+2017-09-01 12:30:22 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Removed 0 nodes.
+2017-09-01 12:30:22 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Nodes by degree: 
+2017-09-01 12:30:22 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 2->75
+2017-09-01 12:30:22 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 4->2
+2017-09-01 12:30:22 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 5->4
+2017-09-01 12:30:22 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 6->193
+2017-09-01 12:30:22 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 8->34
+2017-09-01 12:30:22 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Graph [#nodes=308, #edges=804] simplification
+2017-09-01 12:30:22 [DEBUG]: cz.cvut.fel.aic.graphimporter.structurebuilders.TmpGraphBuilder - Created graph contains following nodes:
+2017-09-01 12:30:22 [DEBUG]: cz.cvut.fel.aic.graphimporter.structurebuilders.TmpGraphBuilder - cz.cvut.fel.aic.graphimporter.structurebuilders.internal.InternalNode: 308
+2017-09-01 12:30:22 [DEBUG]: cz.cvut.fel.aic.graphimporter.structurebuilders.TmpGraphBuilder - Created graph contains following edges:
+2017-09-01 12:30:22 [DEBUG]: cz.cvut.fel.aic.graphimporter.structurebuilders.TmpGraphBuilder - cz.cvut.fel.aic.graphimporter.structurebuilders.internal.InternalEdge: 804
+2017-09-01 12:30:22 [INFO ]: cz.cvut.fel.aic.agentpolis.demo.MapInitializer - Graphs imported, highway graph details: Graph [#nodes=308, #edges=804]
+2017-09-01 12:30:22 [DEBUG]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - SEED = 0
+2017-09-01 12:30:22 [INFO ]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - Loading log4j properties
+2017-09-01 12:38:39 [INFO ]: hsqldb.db.HSQLDB4AD417742A.ENGINE - dataFileCache open start
+2017-09-01 12:38:40 [INFO ]: cz.cvut.fel.aic.agentpolis.demo.MapInitializer - Graphs imported, highway graph details: Graph [#nodes=308, #edges=804]
+2017-09-01 12:38:40 [DEBUG]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - SEED = 0
+2017-09-01 12:38:40 [INFO ]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - Loading log4j properties
+2017-09-01 12:41:09 [INFO ]: hsqldb.db.HSQLDB4AD417742A.ENGINE - dataFileCache open start
+2017-09-01 12:44:03 [INFO ]: hsqldb.db.HSQLDB4AD417742A.ENGINE - dataFileCache open start
+2017-09-01 12:44:04 [INFO ]: cz.cvut.fel.aic.agentpolis.demo.MapInitializer - Graphs imported, highway graph details: Graph [#nodes=308, #edges=804]
+2017-09-01 12:44:04 [DEBUG]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - SEED = 0
+2017-09-01 12:44:04 [INFO ]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - Loading log4j properties
+2017-09-01 01:29:09 [INFO ]: hsqldb.db.HSQLDB4AD417742A.ENGINE - dataFileCache open start
+2017-09-01 01:29:10 [INFO ]: cz.cvut.fel.aic.agentpolis.demo.MapInitializer - Graphs imported, highway graph details: Graph [#nodes=308, #edges=804]
+2017-09-01 01:29:10 [DEBUG]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - SEED = 0
+2017-09-01 01:29:10 [INFO ]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - Loading log4j properties
+2017-09-01 01:30:04 [INFO ]: hsqldb.db.HSQLDB4AD417742A.ENGINE - dataFileCache open start
+2017-09-01 01:30:05 [INFO ]: cz.cvut.fel.aic.agentpolis.demo.MapInitializer - Graphs imported, highway graph details: Graph [#nodes=308, #edges=804]
+2017-09-01 01:30:05 [DEBUG]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - SEED = 0
+2017-09-01 01:30:05 [INFO ]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - Loading log4j properties
+2017-09-01 01:32:35 [INFO ]: hsqldb.db.HSQLDB4AD417742A.ENGINE - dataFileCache open start
+2017-09-01 01:34:52 [INFO ]: hsqldb.db.HSQLDB4AD417742A.ENGINE - dataFileCache open start
+2017-09-01 01:34:53 [WARN ]: cz.cvut.fel.aic.graphimporter.GraphCreator - Cannot perform deserialization of the cached graphs:edges.geojson.ser (Adresář nebo soubor neexistuje)
+2017-09-01 01:34:53 [WARN ]: cz.cvut.fel.aic.graphimporter.GraphCreator - Generating graphs from the OSM
+2017-09-01 01:34:53 [INFO ]: cz.cvut.fel.aic.graphimporter.geojson.GeoJSONReader - Parsing of geojson started...
+2017-09-01 01:34:54 [INFO ]: cz.cvut.fel.aic.graphimporter.geojson.GeoJSONReader - Parsing of GeoJSON finished in 307ms
+2017-09-01 01:34:54 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Calculating main components for all modes...
+2017-09-01 01:34:54 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Removed 0 edges.
+2017-09-01 01:34:54 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Removed 0 nodes.
+2017-09-01 01:34:54 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Nodes by degree: 
+2017-09-01 01:34:54 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 2->75
+2017-09-01 01:34:54 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 4->2
+2017-09-01 01:34:54 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 5->4
+2017-09-01 01:34:54 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 6->193
+2017-09-01 01:34:54 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 8->34
+2017-09-01 01:34:54 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Graph [#nodes=308, #edges=804] simplification
+2017-09-01 01:34:54 [DEBUG]: cz.cvut.fel.aic.graphimporter.structurebuilders.TmpGraphBuilder - Created graph contains following nodes:
+2017-09-01 01:34:54 [DEBUG]: cz.cvut.fel.aic.graphimporter.structurebuilders.TmpGraphBuilder - cz.cvut.fel.aic.graphimporter.structurebuilders.internal.InternalNode: 308
+2017-09-01 01:34:54 [DEBUG]: cz.cvut.fel.aic.graphimporter.structurebuilders.TmpGraphBuilder - Created graph contains following edges:
+2017-09-01 01:34:54 [DEBUG]: cz.cvut.fel.aic.graphimporter.structurebuilders.TmpGraphBuilder - cz.cvut.fel.aic.graphimporter.structurebuilders.internal.InternalEdge: 804
+2017-09-01 01:34:54 [INFO ]: cz.cvut.fel.aic.agentpolis.demo.MapInitializer - Graphs imported, highway graph details: Graph [#nodes=308, #edges=804]
+2017-09-01 01:34:54 [DEBUG]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - SEED = 0
+2017-09-01 01:34:54 [INFO ]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - Loading log4j properties
+2017-09-01 01:39:06 [INFO ]: hsqldb.db.HSQLDB4AD417742A.ENGINE - dataFileCache open start
+2017-09-01 01:39:07 [WARN ]: cz.cvut.fel.aic.graphimporter.GraphCreator - Cannot perform deserialization of the cached graphs:edges.geojson.ser (Adresář nebo soubor neexistuje)
+2017-09-01 01:39:07 [WARN ]: cz.cvut.fel.aic.graphimporter.GraphCreator - Generating graphs from the OSM
+2017-09-01 01:39:07 [INFO ]: cz.cvut.fel.aic.graphimporter.geojson.GeoJSONReader - Parsing of geojson started...
+2017-09-01 01:39:07 [INFO ]: cz.cvut.fel.aic.graphimporter.geojson.GeoJSONReader - Parsing of GeoJSON finished in 292ms
+2017-09-01 01:39:07 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Calculating main components for all modes...
+2017-09-01 01:39:07 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Removed 0 edges.
+2017-09-01 01:39:08 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Removed 0 nodes.
+2017-09-01 01:39:08 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Nodes by degree: 
+2017-09-01 01:39:08 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 2->56
+2017-09-01 01:39:08 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 3->3
+2017-09-01 01:39:08 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 4->3
+2017-09-01 01:39:08 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 5->9
+2017-09-01 01:39:08 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 6->174
+2017-09-01 01:39:08 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 8->37
+2017-09-01 01:39:08 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Graph [#nodes=282, #edges=759] simplification
+2017-09-01 01:39:08 [DEBUG]: cz.cvut.fel.aic.graphimporter.structurebuilders.TmpGraphBuilder - Created graph contains following nodes:
+2017-09-01 01:39:08 [DEBUG]: cz.cvut.fel.aic.graphimporter.structurebuilders.TmpGraphBuilder - cz.cvut.fel.aic.graphimporter.structurebuilders.internal.InternalNode: 282
+2017-09-01 01:39:08 [DEBUG]: cz.cvut.fel.aic.graphimporter.structurebuilders.TmpGraphBuilder - Created graph contains following edges:
+2017-09-01 01:39:08 [DEBUG]: cz.cvut.fel.aic.graphimporter.structurebuilders.TmpGraphBuilder - cz.cvut.fel.aic.graphimporter.structurebuilders.internal.InternalEdge: 759
+2017-09-01 01:39:08 [INFO ]: cz.cvut.fel.aic.agentpolis.demo.MapInitializer - Graphs imported, highway graph details: Graph [#nodes=282, #edges=759]
+2017-09-01 01:39:08 [DEBUG]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - SEED = 0
+2017-09-01 01:39:08 [INFO ]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - Loading log4j properties
+2017-09-01 01:40:32 [INFO ]: hsqldb.db.HSQLDB4AD417742A.ENGINE - dataFileCache open start
+2017-09-01 01:40:33 [WARN ]: cz.cvut.fel.aic.graphimporter.GraphCreator - Cannot perform deserialization of the cached graphs:edges.geojson.ser (Adresář nebo soubor neexistuje)
+2017-09-01 01:40:33 [WARN ]: cz.cvut.fel.aic.graphimporter.GraphCreator - Generating graphs from the OSM
+2017-09-01 01:40:33 [INFO ]: cz.cvut.fel.aic.graphimporter.geojson.GeoJSONReader - Parsing of geojson started...
+2017-09-01 01:40:33 [INFO ]: cz.cvut.fel.aic.graphimporter.geojson.GeoJSONReader - Parsing of GeoJSON finished in 137ms
+2017-09-01 01:40:33 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Calculating main components for all modes...
+2017-09-01 01:40:33 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Removed 0 edges.
+2017-09-01 01:40:33 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Removed 0 nodes.
+2017-09-01 01:40:33 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Nodes by degree: 
+2017-09-01 01:40:33 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 2->45
+2017-09-01 01:40:33 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 5->4
+2017-09-01 01:40:33 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 6->67
+2017-09-01 01:40:33 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 8->8
+2017-09-01 01:40:33 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Graph [#nodes=124, #edges=288] simplification
+2017-09-01 01:40:33 [DEBUG]: cz.cvut.fel.aic.graphimporter.structurebuilders.TmpGraphBuilder - Created graph contains following nodes:
+2017-09-01 01:40:33 [DEBUG]: cz.cvut.fel.aic.graphimporter.structurebuilders.TmpGraphBuilder - cz.cvut.fel.aic.graphimporter.structurebuilders.internal.InternalNode: 124
+2017-09-01 01:40:33 [DEBUG]: cz.cvut.fel.aic.graphimporter.structurebuilders.TmpGraphBuilder - Created graph contains following edges:
+2017-09-01 01:40:33 [DEBUG]: cz.cvut.fel.aic.graphimporter.structurebuilders.TmpGraphBuilder - cz.cvut.fel.aic.graphimporter.structurebuilders.internal.InternalEdge: 288
+2017-09-01 01:40:33 [INFO ]: cz.cvut.fel.aic.agentpolis.demo.MapInitializer - Graphs imported, highway graph details: Graph [#nodes=124, #edges=288]
+2017-09-01 01:40:33 [DEBUG]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - SEED = 0
+2017-09-01 01:40:33 [INFO ]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - Loading log4j properties
+2017-09-01 01:47:49 [INFO ]: hsqldb.db.HSQLDB4AD417742A.ENGINE - dataFileCache open start
+2017-09-01 01:47:51 [WARN ]: cz.cvut.fel.aic.graphimporter.GraphCreator - Cannot perform deserialization of the cached graphs:edges.geojson.ser (Adresář nebo soubor neexistuje)
+2017-09-01 01:47:51 [WARN ]: cz.cvut.fel.aic.graphimporter.GraphCreator - Generating graphs from the OSM
+2017-09-01 01:47:51 [INFO ]: cz.cvut.fel.aic.graphimporter.geojson.GeoJSONReader - Parsing of geojson started...
+2017-09-01 01:47:58 [INFO ]: cz.cvut.fel.aic.graphimporter.geojson.GeoJSONReader - Parsing of GeoJSON finished in 6965ms
+2017-09-01 01:47:58 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Calculating main components for all modes...
+2017-09-01 01:47:58 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Removed 0 edges.
+2017-09-01 01:47:58 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Removed 0 nodes.
+2017-09-01 01:47:58 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Nodes by degree: 
+2017-09-01 01:47:58 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 2->3198
+2017-09-01 01:47:58 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 3->8099
+2017-09-01 01:47:58 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 4->7770
+2017-09-01 01:47:58 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 5->7419
+2017-09-01 01:47:58 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 6->9640
+2017-09-01 01:47:58 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 7->409
+2017-09-01 01:47:58 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 8->1207
+2017-09-01 01:47:58 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 9->12
+2017-09-01 01:47:58 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 10->18
+2017-09-01 01:47:58 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 11->1
+2017-09-01 01:47:58 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Graph [#nodes=37773, #edges=84763] simplification
+2017-09-01 01:47:58 [DEBUG]: cz.cvut.fel.aic.graphimporter.structurebuilders.TmpGraphBuilder - Created graph contains following nodes:
+2017-09-01 01:47:58 [DEBUG]: cz.cvut.fel.aic.graphimporter.structurebuilders.TmpGraphBuilder - cz.cvut.fel.aic.graphimporter.structurebuilders.internal.InternalNode: 37773
+2017-09-01 01:47:58 [DEBUG]: cz.cvut.fel.aic.graphimporter.structurebuilders.TmpGraphBuilder - Created graph contains following edges:
+2017-09-01 01:47:58 [DEBUG]: cz.cvut.fel.aic.graphimporter.structurebuilders.TmpGraphBuilder - cz.cvut.fel.aic.graphimporter.structurebuilders.internal.InternalEdge: 84763
+2017-09-01 01:47:59 [INFO ]: cz.cvut.fel.aic.agentpolis.demo.MapInitializer - Graphs imported, highway graph details: Graph [#nodes=37773, #edges=84763]
+2017-09-01 01:47:59 [DEBUG]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - SEED = 0
+2017-09-01 01:47:59 [INFO ]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - Loading log4j properties
+2017-09-01 02:16:19 [INFO ]: hsqldb.db.HSQLDB4AD417742A.ENGINE - dataFileCache open start
+2017-09-01 02:16:20 [WARN ]: cz.cvut.fel.aic.graphimporter.GraphCreator - Cannot perform deserialization of the cached graphs:edges.geojson.ser (Adresář nebo soubor neexistuje)
+2017-09-01 02:16:20 [WARN ]: cz.cvut.fel.aic.graphimporter.GraphCreator - Generating graphs from the OSM
+2017-09-01 02:16:20 [INFO ]: cz.cvut.fel.aic.graphimporter.geojson.GeoJSONReader - Parsing of geojson started...
+2017-09-01 02:16:27 [INFO ]: cz.cvut.fel.aic.graphimporter.geojson.GeoJSONReader - Parsing of GeoJSON finished in 7376ms
+2017-09-01 02:16:27 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Calculating main components for all modes...
+2017-09-01 02:16:27 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Removed 0 edges.
+2017-09-01 02:16:28 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Removed 0 nodes.
+2017-09-01 02:16:28 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Nodes by degree: 
+2017-09-01 02:16:28 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 2->3446
+2017-09-01 02:16:28 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 3->8120
+2017-09-01 02:16:28 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 4->7901
+2017-09-01 02:16:28 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 5->7493
+2017-09-01 02:16:28 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 6->9998
+2017-09-01 02:16:28 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 7->427
+2017-09-01 02:16:28 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 8->1263
+2017-09-01 02:16:28 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 9->13
+2017-09-01 02:16:28 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 10->25
+2017-09-01 02:16:28 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - 11->1
+2017-09-01 02:16:28 [DEBUG]: cz.cvut.fel.aic.graphimporter.GraphCreator - Graph [#nodes=38687, #edges=86890] simplification
+2017-09-01 02:16:28 [DEBUG]: cz.cvut.fel.aic.graphimporter.structurebuilders.TmpGraphBuilder - Created graph contains following nodes:
+2017-09-01 02:16:28 [DEBUG]: cz.cvut.fel.aic.graphimporter.structurebuilders.TmpGraphBuilder - cz.cvut.fel.aic.graphimporter.structurebuilders.internal.InternalNode: 38687
+2017-09-01 02:16:28 [DEBUG]: cz.cvut.fel.aic.graphimporter.structurebuilders.TmpGraphBuilder - Created graph contains following edges:
+2017-09-01 02:16:28 [DEBUG]: cz.cvut.fel.aic.graphimporter.structurebuilders.TmpGraphBuilder - cz.cvut.fel.aic.graphimporter.structurebuilders.internal.InternalEdge: 86890
+2017-09-01 02:16:29 [INFO ]: cz.cvut.fel.aic.agentpolis.demo.MapInitializer - Graphs imported, highway graph details: Graph [#nodes=38687, #edges=86890]
+2017-09-01 02:16:29 [DEBUG]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - SEED = 0
+2017-09-01 02:16:29 [INFO ]: cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator - Loading log4j properties

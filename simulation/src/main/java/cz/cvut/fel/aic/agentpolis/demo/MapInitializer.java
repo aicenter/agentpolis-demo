@@ -55,7 +55,22 @@ public class MapInitializer {
      */
     public MapData getMap() {
         Map<GraphType, Graph<SimulationNode, SimulationEdge>> graphs = new HashMap<>();
-        OsmImporter importer = new OsmImporter(mapFile, allowedOsmModes, projection);
+        //OsmImporter importer = new OsmImporter(mapFile, allowedOsmModes, projection);
+        //System.out.println("Working Directory = " + System.getProperty("user.dir"));
+        File folder = new File(System.getProperty("user.dir"));
+        File[] listOfFiles = folder.listFiles();
+        for (int i = 0; i < listOfFiles.length; i++) {
+            // System.out.println(listOfFiles[i].getName());
+            String extension = getExtension(listOfFiles[i].getName()); //TO DO
+            // System.out.println(extension);
+            if ("ser".equals(extension)) {
+                String absolutePath = folder + "/" + listOfFiles[i].getName();
+                //System.out.println(absolutePath);
+                deleteTempFile(absolutePath);
+            }
+        }
+        GeoJSONReader importer = new GeoJSONReader("/home/martin/MOBILITY/GITHUB/edges.geojson",
+                "/home/martin/MOBILITY/GITHUB/nodes.geojson", projection);
 
         GraphCreator<SimulationNode, SimulationEdge> graphCreator = new GraphCreator(projection,
                 true, true, importer, new SimulationNodeFactory(), new SimulationEdgeFactory());
@@ -64,6 +79,24 @@ public class MapInitializer {
 
         LOGGER.info("Graphs imported, highway graph details: " + graphs.get(EGraphType.HIGHWAY));
         return MapDataGenerator.getMap(graphs);
+    }
+
+    private String getExtension(String filename) {
+        return filename.substring(filename.length() - 3, filename.length());
+    }
+
+    private void deleteTempFile(String filename) { //TO DO
+        try {
+            File file = new File(filename);
+
+            if (file.delete()) {
+                System.out.println(file.getName() + " is deleted!");
+            } else {
+                System.out.println("Delete operation is failed.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

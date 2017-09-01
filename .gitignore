@@ -1,1 +1,4 @@
 /simulation/target/
+
+#temp data
+simulation/*.ser

@@ -1,16 +1,16 @@
-04:46:38 [INFO ] (SimulationCreator.java:175) - Loaded log4j properties
-04:46:38 [INFO ] (SimulationCreator.java:144) - Setting up Alite simulation modul
-04:46:38 [INFO ] (SimulationCreator.java:148) - Set up Alite simulation modul
-04:46:38 [INFO ] (SimulationCreator.java:94) - >>> MAPS CREATION
-04:46:38 [INFO ] (SimulationCreator.java:152) - Creating instance of environment
-04:46:38 [INFO ] (SimulationCreator.java:155) - Created instance of environment
-04:46:38 [WARN ] (StandardTimeProvider.java:55) - Init day is not day start (00:00). It will be set to the start of the day.
-04:46:38 [INFO ] (SimulationCreator.java:199) - Initializing Visio
-04:46:39 [INFO ] (SimulationCreator.java:202) - Initialized Visio
-04:46:39 [INFO ] (SimulationCreator.java:115) - Simulation - init time: 245 ms
-04:46:39 [INFO ] (Simulation.java:92) - >>> SIMULATION START
-04:46:56 [INFO ] (Simulation.java:98) - >>> SIMULATION FINISH
-04:46:56 [INFO ] (Simulation.java:99) - >>> END TIME: 86400000ms
-04:46:56 [INFO ] (Simulation.java:100) - >>> EVENT COUNT: 2216565
-04:46:56 [INFO ] (Simulation.java:101) - >>> RUNTIME: 17,49s
-04:46:56 [INFO ] (SimulationCreator.java:125) - Simulation - runtime: 17496 ms
+02:16:29 [INFO ] (SimulationCreator.java:175) - Loaded log4j properties
+02:16:29 [INFO ] (SimulationCreator.java:144) - Setting up Alite simulation modul
+02:16:29 [INFO ] (SimulationCreator.java:148) - Set up Alite simulation modul
+02:16:29 [INFO ] (SimulationCreator.java:94) - >>> MAPS CREATION
+02:16:29 [INFO ] (SimulationCreator.java:152) - Creating instance of environment
+02:16:29 [INFO ] (SimulationCreator.java:155) - Created instance of environment
+02:16:29 [WARN ] (StandardTimeProvider.java:55) - Init day is not day start (00:00). It will be set to the start of the day.
+02:16:29 [INFO ] (SimulationCreator.java:199) - Initializing Visio
+02:16:29 [INFO ] (SimulationCreator.java:202) - Initialized Visio
+02:16:29 [INFO ] (SimulationCreator.java:115) - Simulation - init time: 365 ms
+02:16:29 [INFO ] (Simulation.java:92) - >>> SIMULATION START
+02:17:18 [INFO ] (Simulation.java:98) - >>> SIMULATION FINISH
+02:17:18 [INFO ] (Simulation.java:99) - >>> END TIME: 86400000ms
+02:17:18 [INFO ] (Simulation.java:100) - >>> EVENT COUNT: 2192745
+02:17:18 [INFO ] (Simulation.java:101) - >>> RUNTIME: 48,52s
+02:17:18 [INFO ] (SimulationCreator.java:125) - Simulation - runtime: 48555 ms
