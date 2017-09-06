@@ -3,6 +3,6 @@ target/
 #temp data
 *.ser
 .idea/
-demo.iml
+*.iml
 log.txt
 log/
