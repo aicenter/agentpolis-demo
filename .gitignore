@@ -1,4 +1,8 @@
-/simulation/target/
+target/
 
 #temp data
-simulation/*.ser
+*.ser
+.idea/
+demo.iml
+log.txt
+log/
