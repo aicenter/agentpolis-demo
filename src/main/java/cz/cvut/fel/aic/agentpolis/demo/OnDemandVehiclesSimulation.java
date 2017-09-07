@@ -1,5 +1,3 @@
-/*
- */
 package cz.cvut.fel.aic.agentpolis.demo;
 
 import ninja.fido.config.Configuration;

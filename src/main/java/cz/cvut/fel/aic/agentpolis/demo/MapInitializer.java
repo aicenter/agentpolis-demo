@@ -55,7 +55,7 @@ public class MapInitializer {
      */
     public MapData getMap() {
         Map<GraphType, Graph<SimulationNode, SimulationEdge>> graphs = new HashMap<>();
-        //OsmImporter importer = new OsmImporter(mapFile, allowedOsmModes, projection);
+        OsmImporter importer = new OsmImporter(mapFile, allowedOsmModes, projection);
         //System.out.println("Working Directory = " + System.getProperty("user.dir"));
         File folder = new File(System.getProperty("user.dir"));
         File[] listOfFiles = folder.listFiles();
@@ -69,8 +69,7 @@ public class MapInitializer {
                 deleteTempFile(absolutePath);
             }
         }
-        GeoJSONReader importer = new GeoJSONReader("/home/martin/MOBILITY/GITHUB/edges.geojson",
-                "/home/martin/MOBILITY/GITHUB/nodes.geojson", projection);
+        //GeoJSONReader importer = new GeoJSONReader("/home/martin/MOBILITY/GITHUB/edges.geojson","/home/martin/MOBILITY/GITHUB/nodes.geojson", projection);
 
         GraphCreator<SimulationNode, SimulationEdge> graphCreator = new GraphCreator(projection,
                 true, true, importer, new SimulationNodeFactory(), new SimulationEdgeFactory());

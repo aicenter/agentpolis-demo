@@ -33,11 +33,11 @@ import java.util.Set;
  */
 public class MainModule extends StandardAgentPolisModule {
 
-    private final Config amodsimConfig;
+    private final Config config;
 
-    public MainModule(Config amodsimConfig) {
+    public MainModule(Config config) {
         super();
-        this.amodsimConfig = amodsimConfig;
+        this.config = config;
     }
 
     @Override
@@ -47,10 +47,10 @@ public class MainModule extends StandardAgentPolisModule {
 
     @Override
     protected void configureNext() {
-        bind(File.class).annotatedWith(Names.named("osm File")).toInstance(new File(amodsimConfig.mapFilePath));
+        bind(File.class).annotatedWith(Names.named("osm File")).toInstance(new File(this.config.mapFilePath));
 
         bind(new TypeLiteral<Set<TransportMode>>() {}).toInstance(Sets.immutableEnumSet(TransportMode.CAR));
-        bind(Config.class).toInstance(amodsimConfig);
-        bind(Transformer.class).toInstance(new Transformer(amodsimConfig.srid));
+        bind(Config.class).toInstance(this.config);
+        bind(Transformer.class).toInstance(new Transformer(this.config.srid));
     }
 }
