@@ -1,8 +1,12 @@
+### Project config file
+/src/main/java/resources/cz/cvut/fel/aic/agentpolis/demo/config/local-config-location.txt
+
 target/
 
 #temp data
 *.ser
 .idea/
 *.iml
+*.log
 log.txt
 log/
