@@ -7,6 +7,7 @@ package cz.cvut.fel.aic.agentpolis.demo;
 
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
+import cz.cvut.fel.aic.agentpolis.demo.config.Config;
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.EGraphType;
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.GraphType;
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.elements.SimulationNode;
@@ -19,6 +20,7 @@ import cz.cvut.fel.aic.geographtools.Graph;
 import cz.cvut.fel.aic.geographtools.util.Transformer;
 import cz.cvut.fel.aic.graphimporter.GraphCreator;
 import cz.cvut.fel.aic.geographtools.TransportMode;
+import cz.cvut.fel.aic.graphimporter.Importer;
 import cz.cvut.fel.aic.graphimporter.geojson.GeoJSONReader;
 import cz.cvut.fel.aic.graphimporter.osm.OsmImporter;
 import org.apache.log4j.Logger;
@@ -37,15 +39,22 @@ public class MapInitializer {
 
     private final File mapFile;
 
+    private final String geojsonEdges;
+
+    private final String geojsonNodes;
+
     private final Transformer projection;
 
     private final Set<TransportMode> allowedOsmModes;
 
     @Inject
-    public MapInitializer(Transformer projection, @Named("osm File") File mapFile, Set<TransportMode> allowedOsmModes) {
+    public MapInitializer(Transformer projection, @Named("osm File") File mapFile, @Named("geojson Edges") String geojsonEdges,
+                          @Named("geojson Nodes") String geojsonNodes, Set<TransportMode> allowedOsmModes) {
         this.mapFile = mapFile;
         this.projection = projection;
         this.allowedOsmModes = allowedOsmModes;
+        this.geojsonEdges = geojsonEdges;
+        this.geojsonNodes = geojsonNodes;
     }
 
     /**
@@ -55,7 +64,6 @@ public class MapInitializer {
      */
     public MapData getMap() {
         Map<GraphType, Graph<SimulationNode, SimulationEdge>> graphs = new HashMap<>();
-        OsmImporter importer = new OsmImporter(mapFile, allowedOsmModes, projection);
         //System.out.println("Working Directory = " + System.getProperty("user.dir"));
         File folder = new File(System.getProperty("user.dir"));
         File[] listOfFiles = folder.listFiles();
@@ -69,7 +77,14 @@ public class MapInitializer {
                 deleteTempFile(absolutePath);
             }
         }
-        //GeoJSONReader importer = new GeoJSONReader("/home/martin/MOBILITY/GITHUB/edges.geojson","/home/martin/MOBILITY/GITHUB/nodes.geojson", projection);
+
+        Importer importer = null;
+        if (geojsonEdges != null && geojsonNodes != null && new File(geojsonEdges).exists() && new File(geojsonNodes).exists()) {
+            importer = new GeoJSONReader(geojsonEdges, geojsonNodes, projection);
+        }
+        if (importer == null) {
+            importer = new OsmImporter(mapFile, allowedOsmModes, projection);
+        }
 
         GraphCreator<SimulationNode, SimulationEdge> graphCreator = new GraphCreator(projection,
                 true, true, importer, new SimulationNodeFactory(), new SimulationEdgeFactory());

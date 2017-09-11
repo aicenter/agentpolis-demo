@@ -27,6 +27,10 @@ public class Config implements GeneratedConfig {
 
     public String mapFilePath;
 
+    public String geojsonEdges;
+
+    public String geojsonNodes;
+
     public String amodsimExperimentDir;
 
     public String amodsimDataDir;
@@ -50,7 +54,11 @@ public class Config implements GeneratedConfig {
         this.stations = new Stations((HashMap) config.get("stations"));
         this.analysis = new Analysis((HashMap) config.get("analysis"));
         this.srid = (Integer) config.get("srid");
+
         this.mapFilePath = (String) config.get("map_file_path");
+        this.geojsonEdges = (String) config.get("map_geojson_edges");
+        this.geojsonNodes = (String) config.get("map_geojson_nodes");
+
         this.amodsimExperimentDir = (String) config.get("amodsim_experiment_dir");
         this.amodsimDataDir = (String) config.get("amodsim_data_dir");
         this.tripsMultiplier = (Double) config.get("trips_multiplier");
