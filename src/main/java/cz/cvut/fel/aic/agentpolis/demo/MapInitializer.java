@@ -64,19 +64,7 @@ public class MapInitializer {
      */
     public MapData getMap() {
         Map<GraphType, Graph<SimulationNode, SimulationEdge>> graphs = new HashMap<>();
-        //System.out.println("Working Directory = " + System.getProperty("user.dir"));
-        File folder = new File(System.getProperty("user.dir"));
-        File[] listOfFiles = folder.listFiles();
-        for (int i = 0; i < listOfFiles.length; i++) {
-            // System.out.println(listOfFiles[i].getName());
-            String extension = getExtension(listOfFiles[i].getName()); //TO DO
-            // System.out.println(extension);
-            if ("ser".equals(extension)) {
-                String absolutePath = folder + "/" + listOfFiles[i].getName();
-                //System.out.println(absolutePath);
-                deleteTempFile(absolutePath);
-            }
-        }
+        removeTemporaryFiles();
 
         Importer importer = null;
         if (geojsonEdges != null && geojsonNodes != null && new File(geojsonEdges).exists() && new File(geojsonNodes).exists()) {
@@ -99,17 +87,33 @@ public class MapInitializer {
         return filename.substring(filename.length() - 3, filename.length());
     }
 
-    private void deleteTempFile(String filename) { //TO DO
+    private void deleteTempFile(String filename) {
         try {
             File file = new File(filename);
 
             if (file.delete()) {
-                System.out.println(file.getName() + " is deleted!");
+                LOGGER.info(file.getName() + " is deleted!");
             } else {
-                System.out.println("Delete operation is failed.");
+                LOGGER.info("Delete operation is failed.");
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    private void removeTemporaryFiles() {
+        //System.out.println("Working Directory = " + System.getProperty("user.dir"));
+        File folder = new File(System.getProperty("user.dir"));
+        File[] listOfFiles = folder.listFiles();
+        for (int i = 0; i < listOfFiles.length; i++) {
+           //  System.out.println(listOfFiles[i].getName());
+            String extension = getExtension(listOfFiles[i].getName());
+            // System.out.println(extension);
+            if ("ser".equals(extension)) {
+                String absolutePath = folder + "/" + listOfFiles[i].getName();
+                //System.out.println(absolutePath);
+                deleteTempFile(absolutePath);
+            }
         }
     }
 

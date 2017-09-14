@@ -10,3 +10,7 @@ target/
 *.log
 log.txt
 log/
+python_scripts/data
+python_scripts/*.osm
+python_scripts/*.bz2
+python_scripts/osmfilter*
