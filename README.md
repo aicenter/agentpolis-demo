@@ -61,7 +61,7 @@ where you subtitute path/to/python2.7/interpreter with your own path to python 2
 
 ## Examples of usage
 
-Go in folder python_scripts and type
+Go to folder python_scripts and type
 
 map_downloader.py (optional)
 
@@ -69,17 +69,18 @@ map_downloader.py (optional)
     path/to/python2.7/interpreter map_downloader.py "Hanoi" # or another city (there are almost 200 cities all around the world)
 ```
 
-run_demo.py
+preprocess_map.py
 
 ```bash
-    path/to/python2.7/interpreter run_demo.py path/to/OSMfile.osm
+    path/to/python2.7/interpreter preprocess_map.py path/to/OSMfile.osm
 ```
 
-clean, build and run visualisation
+go back to parent directory then clean, build and run visualisation
 
 ```bash
     mvn -X clean install exec:java -Dexec.mainClass="cz.cvut.fel.aic.agentpolis.demo.OnDemandVehiclesSimulation"
 ```
+!FILES CREATED BY SCRIPTS ARE SAVED IN ROOT DIRECTORY OF PROJECT!
 
 ## Built With
 

@@ -10,7 +10,13 @@ target/
 *.log
 log*
 python_scripts/osmfilter*
-data/* #geojson files
-maps/* #osm files
-scr/main/java/cz/cvut/fel/aic/demo/config/* #temporary java files
+
+#geojson files
+data/
+#osm files
+maps/
+
+
+#temporary java files
+src/main/java/cz/cvut/fel/aic/demo/config
 
