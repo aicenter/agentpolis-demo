@@ -9,9 +9,13 @@ import subprocess
 import argparse
 
 
-def map_downloader(url):
+def create_filename(name):
+    name.replace(" ","_")
+    return name.lower()
+
+def map_downloader(url, filename):
     try:
-        subprocess.call(["wget", "-O", "map.osm.bz2", url, "--no-check-certificate"])
+        subprocess.call(["wget", "-O", "../maps/" + filename + ".osm.bz2", url, "--no-check-certificate"])
     except OSError as e:
         if e.errno == os.errno.ENOENT:
             err_print("wget not found!\nplease, install it, it's available both Linux and Windows")  # handle file not found error
@@ -40,6 +44,8 @@ my_city = arg.city
 all_cities = []
 for line in list_of_content:
     if "class=\"city\"" in line:
+        if not os.path.isdir("../maps"):  # make directory maps if and only if doesn't exist
+            os.makedirs("../maps")
         line = re.split("<|>", line)
         all_cities.append(line[-3])
         if line[-3] == my_city:
@@ -53,12 +59,13 @@ for line in list_of_content:
                     line = re.split(" |<|>", line)  # cut string into list
                     err_print("size:", line[-5])  # size in MB
                     downloading_page = substring_after(line[11], "=")  # http download
-                    map_downloader(downloading_page.replace("\"", ""))
+                    filename = create_filename(my_city)
+                    map_downloader(downloading_page.replace("\"", ""), filename)
 
                     err_print("unpacking...")
                     start_time = time.time()
-                    bz_file = bz2file.open("map.osm.bz2")
-                    with open("map.osm", "w") as out:  # decompress bz2 file
+                    bz_file = bz2file.open("../maps/" + filename + ".osm.bz2")
+                    with open("../maps/" + filename + ".osm", "w") as out:  # decompress bz2 file
                         out.write(bz_file.read())
                     out.close()
                     err_print("time:", (time.time() - start_time))

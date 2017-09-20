@@ -41,9 +41,9 @@ def check_osmfilter(osmfilter_version, is_linux, mapfile):
             args = get_all_params_osmfilter(f)
         f.close()
         if is_linux:
-            command = "./osmfilter {} {} > data/output.osm".format(mapfile, args)
+            command = "./osmfilter {} {} > ../data/output.osm".format(mapfile, args)
         else:
-            command = "osmfilter.exe {} {} > data/output.osm".format(mapfile, args)
+            command = "osmfilter.exe {} {} > ../data/output.osm".format(mapfile, args)
         # print(command) #check what is executed
         os.system(command)
     else:
@@ -73,12 +73,12 @@ def configure_and_download_dependecies():
         err_print("{} doesn't exist!".format(results.MAP))
         exit(1)
 
-    if not os.path.isdir("data"):  # make directory data if and only if doesn't exist
-        os.makedirs("data")
+    if not os.path.isdir("../data"):  # make directory data if and only if doesn't exist
+        os.makedirs("../data")
         err_print("creating folder...")
 
-    if os.path.exists("data/log.log"):  # remove log file with Google Maps errors
-        os.remove("data/log.log")
+    if os.path.exists("../data/log.log"):  # remove log file with Google Maps errors
+        os.remove("../data/log.log")
 
     err_print("cleaning OSM data...")
     if my_platform == "Linux":  # check if osmfilter is downloaded
@@ -88,8 +88,8 @@ def configure_and_download_dependecies():
 
     err_print("converting OSM to geoJSON...")
 
-    geojson_file = osmtogeojson.convert_osmtogeojson("data/output.osm")
-    f = open("data/output.geojson", "w")
+    geojson_file = osmtogeojson.convert_osmtogeojson("../data/output.osm")
+    f = open("../data/output.geojson", "w")
     osmtogeojson.save_geojson(geojson_file, f)
     f.close()
 
@@ -98,13 +98,13 @@ def remove_temporary_files():
     results = get_args()
     if results.delete == True:
         err_print("removing temporary files...")
-        os.remove("data/output.osm")
-        os.remove("data/output.geojson")
-        os.remove("data/output-result.geojson")
-        os.remove("data/output-cleaned.geojson")
-        os.remove("data/output-simplified.geojson")
-        os.remove("data/output-speeds.geojson")
-        os.remove("data/output-curvatures.geojson")
+        os.remove("../data/output.osm")
+        os.remove("../data/output.geojson")
+        os.remove("../data/output-result.geojson")
+        os.remove("../data/output-cleaned.geojson")
+        os.remove("../data/output-simplified.geojson")
+        os.remove("../data/output-speeds.geojson")
+        os.remove("../data/output-curvatures.geojson")
 
 
 def remove_pyc_files():

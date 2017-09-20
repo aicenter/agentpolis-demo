@@ -8,9 +8,9 @@ target/
 .idea/
 *.iml
 *.log
-log.txt
-log/
-python_scripts/data
-python_scripts/*.osm
-python_scripts/*.bz2
+log*
 python_scripts/osmfilter*
+data/* #geojson files
+maps/* #osm files
+scr/main/java/cz/cvut/fel/aic/demo/config/* #temporary java files
+
