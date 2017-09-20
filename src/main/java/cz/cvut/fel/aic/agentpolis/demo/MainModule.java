@@ -6,26 +6,18 @@
 package cz.cvut.fel.aic.agentpolis.demo;
 
 import com.google.common.collect.Sets;
-import com.google.inject.Provides;
-import com.google.inject.Singleton;
 import com.google.inject.TypeLiteral;
 import com.google.inject.name.Names;
 import cz.cvut.fel.aic.agentpolis.demo.config.Config;
 import cz.cvut.fel.aic.agentpolis.demo.visio.AmodsimVisioInItializer;
-import cz.cvut.fel.aic.agentpolis.simmodel.environment.EntityStorage;
-import cz.cvut.fel.aic.agentpolis.simmodel.environment.VehicleStorage;
-import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.elements.SimulationNode;
-import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.networks.AllNetworkNodes;
-import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.networks.HighwayNetwork;
 import cz.cvut.fel.aic.agentpolis.simulator.visualization.visio.VisioInitializer;
 import cz.cvut.fel.aic.agentpolis.system.StandardAgentPolisModule;
 import cz.cvut.fel.aic.geographtools.util.Transformer;
 import cz.cvut.fel.aic.geographtools.TransportMode;
 import java.io.File;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Set;
+import sun.font.FontUtilities;
 
 /**
  *
@@ -47,7 +39,8 @@ public class MainModule extends StandardAgentPolisModule {
 
     @Override
     protected void configureNext() {
-        bind(File.class).annotatedWith(Names.named("osm File")).toInstance(new File(this.config.mapFilePath));
+      
+        bind(String.class).annotatedWith(Names.named("osm File")).toInstance(this.config.mapFilePath);
         bind(String.class).annotatedWith(Names.named("geojson Edges")).toInstance(this.config.geojsonEdges);
         bind(String.class).annotatedWith(Names.named("geojson Nodes")).toInstance(this.config.geojsonNodes);
 

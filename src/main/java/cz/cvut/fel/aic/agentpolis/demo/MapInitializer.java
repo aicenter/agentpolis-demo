@@ -37,7 +37,7 @@ public class MapInitializer {
 
     private static final Logger LOGGER = Logger.getLogger(MapInitializer.class);
 
-    private final File mapFile;
+    private final String mapFile;
 
     private final String geojsonEdges;
 
@@ -48,7 +48,7 @@ public class MapInitializer {
     private final Set<TransportMode> allowedOsmModes;
 
     @Inject
-    public MapInitializer(Transformer projection, @Named("osm File") File mapFile, @Named("geojson Edges") String geojsonEdges,
+    public MapInitializer(Transformer projection, @Named("osm File") String mapFile, @Named("geojson Edges") String geojsonEdges,
                           @Named("geojson Nodes") String geojsonNodes, Set<TransportMode> allowedOsmModes) {
         this.mapFile = mapFile;
         this.projection = projection;
@@ -71,7 +71,7 @@ public class MapInitializer {
             importer = new GeoJSONReader(geojsonEdges, geojsonNodes, projection);
         }
         if (importer == null) {
-            importer = new OsmImporter(mapFile, allowedOsmModes, projection);
+            importer = new OsmImporter(new File(mapFile), allowedOsmModes, projection);
         }
 
         GraphCreator<SimulationNode, SimulationEdge> graphCreator = new GraphCreator(projection,

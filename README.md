@@ -98,6 +98,6 @@ See also the list of [contributors](https://github.com/aicenter/agentpolis-demo/
 
 ## License
 
-This project is licensed under ?? the MIT License ?? - see the [LICENSE.md](LICENSE.md) file for detail.
+This project is licensed under the APACHE 2.0 - see the [LICENSE.txt](LICENSE.txt) file for detail.
 
 
