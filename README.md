@@ -1,63 +1,11 @@
-# agentpolis-demo
+# Agentpolis Demo Application
 
-Simulation of traffic in real cities with visualisation.
-
+This repository contains an example simulation that demonstrates how can be Agentpolis used to simulate urban transportation scenarios. First, we demonstrate how to convert raw openstreetmap data, preprocess them, and convert them to geojson in Python. Then, create a simple Java application that simulates and visualizes movement of several vehicles over the road network spcified in the input geojson files. 
 
 ### Prerequisites
 
-We will work with [pip](https://pypi.python.org/pypi/pip), [wget](https://www.gnu.org/software/wget/), [maven](https://maven.apache.org/) and [virtualenv](https://virtualenv.pypa.io/en/stable/)(optional). You can follow steps below to install and run it properly.
+This repository contains code in Python and Java. We will need pip, virtualenv (optional), maven, and wget. If you do not have those installed already, here is a guide [how to install prerequisities](https://github.com/aicenter/agentpolis-demo/wiki/Installing-prerequisities).
 
-### Installing
-
-Use
-
-```
-python get-pip.py
-```
-
-for installing pip, 
-
-```
-sudo apt-get install maven
-```
-
-for installing maven and
-
-```
-sudo pip install virtualenv
-```
-
-for virtualenv or eventually on Windows use
-
-
-```
-pip install virtualenv
-```
-
-If you are running in Linux, type
-
-
-```
-mkdir ~/virtualEnvironment && cd ~/virtualEnvironment
-```
-
-then clone this GitHub project
-
-```
-git clone https://github.com/aicenter/agentpolis-demo.git
-```
-or clone with ssh
-```
-git clone git@github.com:aicenter/agentpolis-demo.git
-```
-
-and finally use
-
-```
-virtualenv --python path/to/python2.7/interpreter --no-site-packages --distribute .env && source .env/bin/activate
-```
-
-where you subtitute path/to/python2.7/interpreter with your own path to python 2.7 interpreter to create isolated Python environment.
 
 ## Examples of usage
 
