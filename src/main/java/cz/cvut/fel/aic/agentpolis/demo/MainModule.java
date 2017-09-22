@@ -9,15 +9,13 @@ import com.google.common.collect.Sets;
 import com.google.inject.TypeLiteral;
 import com.google.inject.name.Names;
 import cz.cvut.fel.aic.agentpolis.demo.config.Config;
-import cz.cvut.fel.aic.agentpolis.demo.visio.AmodsimVisioInItializer;
+import cz.cvut.fel.aic.agentpolis.demo.visio.DemoVisioInItializer;
 import cz.cvut.fel.aic.agentpolis.simulator.visualization.visio.VisioInitializer;
 import cz.cvut.fel.aic.agentpolis.system.StandardAgentPolisModule;
 import cz.cvut.fel.aic.geographtools.util.Transformer;
 import cz.cvut.fel.aic.geographtools.TransportMode;
-import java.io.File;
 
 import java.util.Set;
-import sun.font.FontUtilities;
 
 /**
  *
@@ -34,7 +32,7 @@ public class MainModule extends StandardAgentPolisModule {
 
     @Override
     protected void bindVisioInitializer() {
-        bind(VisioInitializer.class).to(AmodsimVisioInItializer.class);
+        bind(VisioInitializer.class).to(DemoVisioInItializer.class);
     }
 
     @Override
