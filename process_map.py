@@ -193,9 +193,6 @@ def filter_osm_file(input_file, output_file):
             '=living_street" --drop="access=no"'
 
         filter_command = '%s %s %s > %s' % (command, input_file, params, output_file)
-
-        print(filter_command)
-
         os.system(filter_command)
     else:
         print_info('Osmfilter not available. Exiting.')
