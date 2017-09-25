@@ -176,7 +176,7 @@ def filter_osm_file(input_file, output_file):
         if not os.path.exists(executable):
             print_info('Downloading and compiling osmfilter... ')
             try:
-                subprocess.call(['wget', 'http://m.m.i24.cc/osmfilter.exe'])
+                subprocess.call(['wget', 'http://m.m.i24.cc/osmfilter.exe', '--no-check-certificate'])
             except OSError as e:
                 if e.errno == os.errno.ENOENT:
                     print_err('wget not found! Please, install it.')  # handle file not found error
@@ -189,11 +189,10 @@ def filter_osm_file(input_file, output_file):
     # run the binary
     if os.path.exists(executable):
         params = '--keep="highway=motorway =motorway_link =trunk =trunk_link =primary =primary_link =secondary' \
-            ' =secondary_link =tertiary =tertiary_link =unclassified =unclassified_link =residential =residential_link' \
-            ' =living_street" --drop="access=no"'
+                 ' =secondary_link =tertiary =tertiary_link =unclassified =unclassified_link =residential =residential_link' \
+                 ' =living_street" --drop="access=no"'
 
         filter_command = '%s %s %s > %s' % (command, input_file, params, output_file)
-        print(filter_command)
         os.system(filter_command)
     else:
         print_info('Osmfilter not available. Exiting.')
