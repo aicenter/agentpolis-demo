@@ -12,12 +12,6 @@ log*
 osmfilter*
 *.pyc
 
-#geojson files
-data/
-#osm files
-maps/
+maptiles/
 
-
-#temporary java files
-src/main/java/cz/cvut/fel/aic/demo/config
 
