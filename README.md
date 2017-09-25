@@ -1,6 +1,6 @@
 # Agentpolis Demo Application
 
-This repository demonstrates how can be Agentpolis used to simulate urban transportation scenarios. First, we illustrate how to convert raw OpenStreetMap data to geoJSON format used by Agentpolis in Python. Then, create a simple Java application that simulates and visualizes movement of several vehicles over the road network specified in the input geoJSON files. 
+In this repository, we demonstrate how to use [Agentpolis](https://github.com/aicenter/agentpolis) to simulate urban transportation scenarios. It contains a Python script that illustrates how to convert raw OpenStreetMap data to geoJSON format used by Agentpolis. Further, it contains an example Java code that illustrates how to use Agentpolis to simulate and visualize movement of several vehicles over the road network specified in the input geoJSON files. 
 
 ### Example of usage
 
