@@ -46,8 +46,8 @@ public class BufferedHighwayLayer extends HighwayLayer {
     @Override
     protected void paintGraph(Graphics2D canvas, Rectangle2D drawingRectangle) {
         if (cachedHighwayNetwork == null) {
-            int imageWidth = positionUtil.getWorldWidth() / scale;
-            int imageHeight = positionUtil.getWorldHeight() / scale;
+            int imageWidth = mapSpecification.getWidth() / scale;
+            int imageHeight = mapSpecification.getHeight() / scale;
 
             cachedHighwayNetwork = new BufferedImage(imageWidth, imageHeight, BufferedImage.TYPE_BYTE_BINARY);
 
