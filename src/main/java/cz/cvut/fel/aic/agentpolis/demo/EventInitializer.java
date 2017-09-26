@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cz.cvut.fel.aic.agentpolis.demo;
 
 import com.google.inject.Inject;
@@ -25,26 +20,13 @@ import java.util.List;
 import java.util.Random;
 
 
-/**
- *
- * @author fido
- */
 @Singleton
 public class EventInitializer {
 
-
-    private static final long MAX_EVENTS = 0;
-
     private static final int RANDOM_SEED = 1;
-
     private final EventProcessor eventProcessor;
-
     private final DemandEventHandler demandEventHandler;
-
     private final Config config;
-
-    private long eventCount;
-
     private final Graph<SimulationNode, SimulationEdge> graph;
 
     @Inject
@@ -53,52 +35,34 @@ public class EventInitializer {
         this.eventProcessor = eventProcessor;
         this.demandEventHandler = demandEventHandler;
         this.config = config;
-        eventCount = 0;
         this.graph = network.getGraph(EGraphType.HIGHWAY);
     }
 
     private static final int NUMBER_OF_TRIPS = 200;
 
     public void initialize() {
-        //get Graph
-        //for-lop
-        //generate latlon_id from-to + check distance
-        //generate  start_time
 
         Random rand = new Random(RANDOM_SEED);
-
         List nodes = (List) this.graph.getAllNodes();
-        SimulationNode node1, node2;
-        long nodeID1, nodeID2;
 
         for (int i = 0; i < NUMBER_OF_TRIPS; i++) {
-            long startTime = rand.nextInt(10000);// + 2000; //in 2 secs + offset 10 secs
+            long startTime = 1 + rand.nextInt(config.agentpolis.simulationDurationInMillis + 1);
 
-            int randNode = rand.nextInt(nodes.size());
-            node1 = (SimulationNode) nodes.get(randNode);
-            nodeID1 = node1.id;
-            randNode = rand.nextInt(nodes.size());
-            node2 = (SimulationNode) nodes.get(randNode);
-            nodeID2 = node2.id;
-            if (startTime < 1 || startTime > config.agentpolis.simulationDurationInMillis || nodeID1 == nodeID2) {
-                i--; //everytime same number of trips must be generated
-                continue;
-            }
+            SimulationNode startNode;
+            SimulationNode destNode;
+            do {
+                startNode = (SimulationNode) nodes.get(rand.nextInt(nodes.size()));
+                destNode = (SimulationNode) nodes.get(rand.nextInt(nodes.size()));
+            } while(startNode.equals(destNode));
 
-            eventProcessor.addEvent(null, demandEventHandler, null, new TimeTrip<SimulationNode>(node1, node2, startTime), startTime);
-            eventCount++;
-            if (MAX_EVENTS != 0 && eventCount >= MAX_EVENTS) {
-                return;
-            }
+            eventProcessor.addEvent(null, demandEventHandler, null, new TimeTrip<SimulationNode>(startNode, destNode, startTime), startTime);
         }
     }
 
     public static class DemandEventHandler extends EventHandlerAdapter {
 
         private final StandardDriveFactory congestedDriveFactory;
-
         private final DriveAgentStorage driveAgentStorage;
-
         private static int COUNTER_ID = 0;
 
         @Inject
@@ -110,22 +74,17 @@ public class EventInitializer {
 
         @Override
         public void handleEvent(Event event) {
-            Trip<SimulationNode> osmNode = (Trip) event.getContent();
-            LinkedList nodes = osmNode.getLocations();
+            Trip<SimulationNode> trip = (Trip) event.getContent();
+            LinkedList nodes = trip.getLocations();
             SimulationNode startNode = (SimulationNode) nodes.get(0);
             SimulationNode finishNode = (SimulationNode) nodes.get(1);
 
-            //set id in name
-            PhysicalVehicle vehicle = new PhysicalVehicle("Test vehicle " + COUNTER_ID, DemoType.VEHICLE, 5, 2, EGraphType.HIGHWAY, startNode, 15); //my starting point
-            //set id in name
-            DriveAgent driveAgent = new DriveAgent("Test driver " + COUNTER_ID, startNode); //my starting point
-
+            PhysicalVehicle vehicle = new PhysicalVehicle("Test vehicle " + COUNTER_ID, DemoType.VEHICLE, 5, 2, EGraphType.HIGHWAY, startNode, 15);
+            DriveAgent driveAgent = new DriveAgent("Test driver " + COUNTER_ID, startNode);
 
             congestedDriveFactory.create(driveAgent, vehicle, finishNode).run();
-
-            COUNTER_ID++;
-
             driveAgentStorage.addEntity(driveAgent);
+            COUNTER_ID++;
         }
     }
 }

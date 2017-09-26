@@ -1,13 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cz.cvut.fel.aic.agentpolis.demo;
 
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
-import cz.cvut.fel.aic.agentpolis.demo.config.Config;
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.EGraphType;
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.GraphType;
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.elements.SimulationNode;
@@ -30,21 +24,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * @author david
- */
 public class MapInitializer {
 
     private static final Logger LOGGER = Logger.getLogger(MapInitializer.class);
-
     private final String mapFile;
-
     private final String geojsonEdges;
-
     private final String geojsonNodes;
-
     private final Transformer projection;
-
     private final Set<TransportMode> allowedOsmModes;
 
     @Inject
@@ -57,11 +43,6 @@ public class MapInitializer {
         this.geojsonNodes = geojsonNodes;
     }
 
-    /**
-     * init map
-     *
-     * @return map data with simulation graph
-     */
     public MapData getMap() {
         Map<GraphType, Graph<SimulationNode, SimulationEdge>> graphs = new HashMap<>();
         removeTemporaryFiles();
