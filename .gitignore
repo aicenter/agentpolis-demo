@@ -13,5 +13,6 @@ osmfilter*
 *.pyc
 
 maptiles/
+ademo_virtenv/
 
 
