@@ -3,6 +3,8 @@ package cz.cvut.fel.aic.apdemo;
 import com.google.common.collect.Sets;
 import com.google.inject.TypeLiteral;
 import com.google.inject.name.Names;
+import cz.cvut.fel.aic.agentpolis.simmodel.activity.activityFactory.CongestedDriveFactory;
+import cz.cvut.fel.aic.agentpolis.simmodel.activity.activityFactory.PhysicalVehicleDriveFactory;
 import cz.cvut.fel.aic.apdemo.config.Config;
 import cz.cvut.fel.aic.apdemo.visio.DemoVisioInItializer;
 import cz.cvut.fel.aic.agentpolis.simulator.visualization.visio.VisioInitializer;
@@ -35,5 +37,8 @@ public class MainModule extends StandardAgentPolisModule {
 
         bind(new TypeLiteral<Set<TransportMode>>() {}).toInstance(Sets.immutableEnumSet(TransportMode.CAR));
         bind(Config.class).toInstance(this.config);
+
+        bind(PhysicalVehicleDriveFactory.class).to(CongestedDriveFactory.class);
+
     }
 }
