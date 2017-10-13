@@ -2,7 +2,7 @@ package cz.cvut.fel.aic.apdemo;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import cz.cvut.fel.aic.apdemo.config.Config;
+import cz.cvut.fel.aic.apdemo.config.ApdemoConfig;
 import cz.cvut.fel.aic.apdemo.io.TimeTrip;
 import cz.cvut.fel.aic.alite.common.event.Event;
 import cz.cvut.fel.aic.alite.common.event.EventHandlerAdapter;
@@ -26,11 +26,11 @@ public class EventInitializer {
     private static final int RANDOM_SEED = 1;
     private final EventProcessor eventProcessor;
     private final DemandEventHandler demandEventHandler;
-    private final Config config;
+    private final ApdemoConfig config;
     private final Graph<SimulationNode, SimulationEdge> graph;
 
     @Inject
-    public EventInitializer(EventProcessor eventProcessor, Config config,
+    public EventInitializer(EventProcessor eventProcessor, ApdemoConfig config,
             DemandEventHandler demandEventHandler, TransportNetworks network) {
         this.eventProcessor = eventProcessor;
         this.demandEventHandler = demandEventHandler;
