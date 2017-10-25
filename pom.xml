@@ -3,7 +3,6 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>cz.cvut.fel.aic</groupId>
-
     <artifactId>apdemo</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
@@ -71,4 +70,17 @@
         <!-- External lib -->
 
     </dependencies>
+        
+    <repositories>
+        <repository>
+            <snapshots>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+            <releases />
+            <id>atg-repo</id>
+            <name>atg-repo</name>
+            <url>http://jones.felk.cvut.cz/artifactory/repo</url>
+        </repository>
+    </repositories> 
+    
 </project>
