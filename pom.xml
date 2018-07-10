@@ -61,7 +61,7 @@
         <!-- External lib -->
 
     </dependencies>
-        
+
     <repositories>
         <repository>
             <snapshots>
@@ -72,6 +72,6 @@
             <name>atg-repo</name>
             <url>http://jones.felk.cvut.cz/artifactory/repo</url>
         </repository>
-    </repositories> 
-    
+    </repositories>
+
 </project>

@@ -143,7 +143,7 @@ def get_args():
 def convert_osm_to_geojson(input_file, output_file):
     print_info('Converting from OSM format to geoJSON... ', end='')
     start_time = time.time()
-
+   
     geojson_file = osmtogeojson.convert_osmtogeojson(input_file)
     f = open(output_file, 'w')
     osmtogeojson.save_geojson(geojson_file, f)

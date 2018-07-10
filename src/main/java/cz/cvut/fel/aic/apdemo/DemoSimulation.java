@@ -19,9 +19,15 @@
 package cz.cvut.fel.aic.apdemo;
 
 import com.google.inject.Injector;
+import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.elements.SimulationNode;
 import cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator;
 import cz.cvut.fel.aic.agentpolis.system.AgentPolisInitializer;
 import cz.cvut.fel.aic.apdemo.config.ApdemoConfig;
+import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.NodeCoordinateInformation;
+import cz.cvut.fel.aic.geographtools.util.GPSLocationTools;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -40,12 +46,26 @@ public class DemoSimulation {
         if (args.length > 0) {
             localConfigFile = new File(args[0]);
         }
+        //localConfigFile = new File("topkek.cfg");
 
         Injector injector = new AgentPolisInitializer(new MainModule(config, localConfigFile)).initialize();
 
         SimulationCreator creator = injector.getInstance(SimulationCreator.class);
         creator.prepareSimulation(injector.getInstance(MapInitializer.class).getMap());
         injector.getInstance(EventInitializer.class).initialize();
+
+
+
+        //NodeCoordinateInformation ci = new NodeCoordinateInformation(injector.getInstance(MapInitializer.class).getMap());
+        /*Map <Integer, SimulationNode> nodes = injector.getInstance()
+        for (Integer key1: nodes.keySet() ) {
+            for (Integer key2: nodes.keySet() ) {
+                double distance = GPSLocationTools.computeDistanceAsDouble(nodes.get(key1), nodes.get(key2));
+                System.out.println( distance + "\n" );
+            }
+        }*/
+
+
 
         creator.startSimulation();
     }

@@ -32,10 +32,14 @@ import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.EGraphTy
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.elements.SimulationEdge;
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.elements.SimulationNode;
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.networks.TransportNetworks;
+import cz.cvut.fel.aic.geographtools.GPSLocation;
 import cz.cvut.fel.aic.geographtools.Graph;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
+
+import cz.cvut.fel.aic.geographtools.util.DistanceUtil;
+import cz.cvut.fel.aic.geographtools.util.GPSLocationTools;
 
 
 @Singleton
@@ -62,6 +66,16 @@ public class EventInitializer {
 
         Random rand = new Random(RANDOM_SEED);
         List nodes = (List) this.graph.getAllNodes();
+
+        /*for ( int i = 0; i < nodes.size(); i++ ) {
+            for ( int j = i + 1; j < nodes.size(); j++ ) {
+                SimulationNode from = (SimulationNode) nodes.get(i);
+                SimulationNode to = (SimulationNode) nodes.get(j);
+                double distance = DistanceUtil.computeEuclideanDistance(from.getLongitudeProjected(), from.getLatitudeProjected(), to.getLongitudeProjected(), to.getLatitudeProjected());
+                System.out.println("Distance from " + i + " to " + j + " is: " + distance);
+            }
+        }*/
+
 
         for (int i = 0; i < NUMBER_OF_TRIPS; i++) {
             long startTime = 1 + rand.nextInt(config.agentpolis.simulationDurationInMillis + 1);
