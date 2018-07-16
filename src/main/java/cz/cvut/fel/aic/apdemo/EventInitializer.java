@@ -20,11 +20,12 @@ package cz.cvut.fel.aic.apdemo;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import cz.cvut.fel.aic.apdemo.config.ApdemoConfig;
+
 import cz.cvut.fel.aic.apdemo.io.TimeTrip;
 import cz.cvut.fel.aic.alite.common.event.Event;
 import cz.cvut.fel.aic.alite.common.event.EventHandlerAdapter;
 import cz.cvut.fel.aic.alite.common.event.EventProcessor;
+import cz.cvut.fel.aic.agentpolis.config.AgentpolisConfig;
 import cz.cvut.fel.aic.agentpolis.siminfrastructure.planner.trip.Trip;
 import cz.cvut.fel.aic.agentpolis.simmodel.activity.activityFactory.StandardDriveFactory;
 import cz.cvut.fel.aic.agentpolis.simmodel.entity.vehicle.PhysicalVehicle;
@@ -48,11 +49,11 @@ public class EventInitializer {
     private static final int RANDOM_SEED = 1;
     private final EventProcessor eventProcessor;
     private final DemandEventHandler demandEventHandler;
-    private final ApdemoConfig config;
+    private final AgentpolisConfig config;
     private final Graph<SimulationNode, SimulationEdge> graph;
 
     @Inject
-    public EventInitializer(EventProcessor eventProcessor, ApdemoConfig config,
+    public EventInitializer(EventProcessor eventProcessor, AgentpolisConfig config,
             DemandEventHandler demandEventHandler, TransportNetworks network) {
         this.eventProcessor = eventProcessor;
         this.demandEventHandler = demandEventHandler;
@@ -78,7 +79,7 @@ public class EventInitializer {
 
 
         for (int i = 0; i < NUMBER_OF_TRIPS; i++) {
-            long startTime = 1 + rand.nextInt(config.agentpolis.simulationDurationInMillis + 1);
+            long startTime = 1 + rand.nextInt(config.simulationDurationInMillis + 1);
 
             SimulationNode startNode;
             SimulationNode destNode;
@@ -111,7 +112,7 @@ public class EventInitializer {
             SimulationNode startNode = (SimulationNode) nodes.get(0);
             SimulationNode finishNode = (SimulationNode) nodes.get(1);
 
-            PhysicalVehicle vehicle = new PhysicalVehicle("Test vehicle " + COUNTER_ID, DemoType.VEHICLE, 5, 2, EGraphType.HIGHWAY, startNode, 15);
+            PhysicalVehicle vehicle = new PhysicalVehicle("Test vehicle " + COUNTER_ID, DemoType.VEHICLE, 5, EGraphType.HIGHWAY, startNode, 15);
             DriveAgent driveAgent = new DriveAgent("Test driver " + COUNTER_ID, startNode);
 
             congestedDriveFactory.create(driveAgent, vehicle, finishNode).run();

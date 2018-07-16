@@ -19,15 +19,10 @@
 package cz.cvut.fel.aic.apdemo;
 
 import com.google.inject.Injector;
-import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.elements.SimulationNode;
+import cz.cvut.fel.aic.agentpolis.config.AgentpolisConfig;
+import cz.cvut.fel.aic.agentpolis.simmodel.mapInitialization.MapInitializer;
 import cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator;
 import cz.cvut.fel.aic.agentpolis.system.AgentPolisInitializer;
-import cz.cvut.fel.aic.apdemo.config.ApdemoConfig;
-import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.NodeCoordinateInformation;
-import cz.cvut.fel.aic.geographtools.util.GPSLocationTools;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -40,7 +35,7 @@ public class DemoSimulation {
 
     public void run(String[] args) {
 
-        ApdemoConfig config = new ApdemoConfig();
+        AgentpolisConfig config = new AgentpolisConfig();
 
         File localConfigFile = null;
         if (args.length > 0) {

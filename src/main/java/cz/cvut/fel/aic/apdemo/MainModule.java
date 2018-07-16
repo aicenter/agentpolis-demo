@@ -21,9 +21,9 @@ package cz.cvut.fel.aic.apdemo;
 import com.google.common.collect.Sets;
 import com.google.inject.TypeLiteral;
 import com.google.inject.name.Names;
+import cz.cvut.fel.aic.agentpolis.config.AgentpolisConfig;
 import cz.cvut.fel.aic.agentpolis.simulator.visualization.visio.VisioInitializer;
 import cz.cvut.fel.aic.agentpolis.system.StandardAgentPolisModule;
-import cz.cvut.fel.aic.apdemo.config.ApdemoConfig;
 import cz.cvut.fel.aic.apdemo.visio.DemoVisioInItializer;
 import cz.cvut.fel.aic.geographtools.TransportMode;
 
@@ -32,9 +32,9 @@ import java.util.Set;
 
 public class MainModule extends StandardAgentPolisModule {
 
-    private final ApdemoConfig config;
+    private final AgentpolisConfig config;
 
-    public MainModule(ApdemoConfig apdemoConfig, File localConfigFile) {
+    public MainModule(AgentpolisConfig apdemoConfig, File localConfigFile) {
         super(apdemoConfig, localConfigFile, "agentpolis");
         this.config = apdemoConfig;
     }
@@ -46,13 +46,10 @@ public class MainModule extends StandardAgentPolisModule {
 
     @Override
     protected void configureNext() {
-
-        bind(String.class).annotatedWith(Names.named("osm File")).toInstance(this.config.mapFilePath);
-        bind(String.class).annotatedWith(Names.named("geojson Edges")).toInstance(this.config.mapGeojsonEdges);
-        bind(String.class).annotatedWith(Names.named("geojson Nodes")).toInstance(this.config.mapGeojsonNodes);
+        bind(File.class).annotatedWith(Names.named("osm File")).toInstance(new File(config.pathToNodes));
 
         bind(new TypeLiteral<Set<TransportMode>>() {
         }).toInstance(Sets.immutableEnumSet(TransportMode.CAR));
-        bind(ApdemoConfig.class).toInstance(this.config);
+        //bind(AgentpolisConfig.class).toInstance(this.config);
     }
 }
