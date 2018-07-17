@@ -43,13 +43,12 @@ public class DemoVisioInItializer extends DefaultVisioInitializer {
     private final VisLayer backgroundLayer;
     private final CarLayer carLayer;
     private final MapTilesLayer mapTilesLayer;
-    private final TestLayer testLayer;
 
     @Inject
     public DemoVisioInItializer(PedestrianNetwork pedestrianNetwork, BikewayNetwork bikewayNetwork,
                                 HighwayNetwork highwayNetwork, TramwayNetwork tramwayNetwork, MetrowayNetwork metrowayNetwork,
                                 RailwayNetwork railwayNetwork, NodeIdLayer nodeIdLayer, HighwayLayer highwayLayer,
-                                SimulationControlLayer simulationControlLayer, GridLayer gridLayer, CarLayer carLayer, MapTilesLayer mapTiles, TestLayer testLayer) {
+                                SimulationControlLayer simulationControlLayer, GridLayer gridLayer, CarLayer carLayer, MapTilesLayer mapTiles) {
         super(pedestrianNetwork, bikewayNetwork, highwayNetwork, tramwayNetwork, metrowayNetwork, railwayNetwork,
                 simulationControlLayer, gridLayer);
         this.nodeIdLayer = nodeIdLayer;
@@ -57,7 +56,6 @@ public class DemoVisioInItializer extends DefaultVisioInitializer {
         this.carLayer = carLayer;
         this.backgroundLayer = ColorLayer.create(Color.white);
         this.mapTilesLayer = mapTiles;
-        this.testLayer = testLayer;
     }
 
     @Override
@@ -71,7 +69,7 @@ public class DemoVisioInItializer extends DefaultVisioInitializer {
 
     @Override
     protected void initLayersAfterEntityLayers() {
-        VisManager.registerLayer(testLayer);
+
     }
 
     @Override
