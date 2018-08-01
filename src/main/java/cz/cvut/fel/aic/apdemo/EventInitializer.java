@@ -20,6 +20,7 @@ package cz.cvut.fel.aic.apdemo;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import cz.cvut.fel.aic.agentpolis.simmodel.environment.VehicleStorage;
 import cz.cvut.fel.aic.apdemo.config.ApdemoConfig;
 import cz.cvut.fel.aic.apdemo.io.TimeTrip;
 import cz.cvut.fel.aic.alite.common.event.Event;
@@ -81,13 +82,16 @@ public class EventInitializer {
 
         private final StandardDriveFactory congestedDriveFactory;
         private final DriveAgentStorage driveAgentStorage;
+        private final VehicleStorage vehicleStorage;
         private static int COUNTER_ID = 0;
 
         @Inject
         public DemandEventHandler(
-                 StandardDriveFactory congestedDriveFactory, DriveAgentStorage driveAgentStorage) {
+                 StandardDriveFactory congestedDriveFactory, DriveAgentStorage driveAgentStorage,
+                 VehicleStorage vehicleStorage) {
             this.congestedDriveFactory = congestedDriveFactory;
             this.driveAgentStorage = driveAgentStorage;
+            this.vehicleStorage = vehicleStorage;
         }
 
         @Override
@@ -97,11 +101,13 @@ public class EventInitializer {
             SimulationNode startNode = (SimulationNode) nodes.get(0);
             SimulationNode finishNode = (SimulationNode) nodes.get(1);
 
-            PhysicalVehicle vehicle = new PhysicalVehicle("Test vehicle " + COUNTER_ID, DemoType.VEHICLE, 5, 2, EGraphType.HIGHWAY, startNode, 15);
+            PhysicalVehicle vehicle = new PhysicalVehicle("Test vehicle " + COUNTER_ID, DemoType.VEHICLE, 5, EGraphType.HIGHWAY, startNode, 15);
             DriveAgent driveAgent = new DriveAgent("Test driver " + COUNTER_ID, startNode);
 
             congestedDriveFactory.create(driveAgent, vehicle, finishNode).run();
             driveAgentStorage.addEntity(driveAgent);
+            vehicleStorage.addEntity(vehicle);
+
             COUNTER_ID++;
         }
     }

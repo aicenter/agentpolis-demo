@@ -18,6 +18,7 @@
  */
 package cz.cvut.fel.aic.apdemo.visio;
 
+import cz.cvut.fel.aic.agentpolis.config.AgentpolisConfig;
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.networks.RailwayNetwork;
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.networks.BikewayNetwork;
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.networks.TramwayNetwork;
@@ -43,24 +44,30 @@ public class DemoVisioInItializer extends DefaultVisioInitializer {
     private final VisLayer backgroundLayer;
     private final CarLayer carLayer;
     private final MapTilesLayer mapTilesLayer;
+    private final LayerManagementLayer layerManagementLayer;
+    private final ScreenCaputreLayer screenCaputreLayer;
 
     @Inject
     public DemoVisioInItializer(PedestrianNetwork pedestrianNetwork, BikewayNetwork bikewayNetwork,
                                 HighwayNetwork highwayNetwork, TramwayNetwork tramwayNetwork, MetrowayNetwork metrowayNetwork,
                                 RailwayNetwork railwayNetwork, NodeIdLayer nodeIdLayer, HighwayLayer highwayLayer,
-                                SimulationControlLayer simulationControlLayer, GridLayer gridLayer, CarLayer carLayer, MapTilesLayer mapTiles) {
+                                SimulationControlLayer simulationControlLayer, GridLayer gridLayer, CarLayer carLayer, MapTilesLayer mapTiles,
+                                LayerManagementLayer layerManagementLayer, ScreenCaputreLayer screenCaputreLayer,
+                                AgentpolisConfig config) {
         super(pedestrianNetwork, bikewayNetwork, highwayNetwork, tramwayNetwork, metrowayNetwork, railwayNetwork,
-                simulationControlLayer, gridLayer);
+                simulationControlLayer, gridLayer, config);
         this.nodeIdLayer = nodeIdLayer;
         this.highwayLayer = highwayLayer;
         this.carLayer = carLayer;
         this.backgroundLayer = ColorLayer.create(Color.white);
         this.mapTilesLayer = mapTiles;
+        this.layerManagementLayer = layerManagementLayer;
+        this.screenCaputreLayer = screenCaputreLayer;
     }
 
     @Override
     protected void initEntityLayers(Simulation simulation) {
-        VisManager.registerLayer(carLayer);
+        VisManager.registerLayer(layerManagementLayer.createManageableLayer("Car Layer", carLayer));
     }
 
     @Override
@@ -69,13 +76,14 @@ public class DemoVisioInItializer extends DefaultVisioInitializer {
 
     @Override
     protected void initLayersAfterEntityLayers() {
-
+        VisManager.registerLayer(layerManagementLayer);
+        VisManager.registerLayer(screenCaputreLayer);
     }
 
     @Override
     protected void initGraphLayers() {
         VisManager.registerLayer(backgroundLayer);
-        VisManager.registerLayer(mapTilesLayer);
+        VisManager.registerLayer(layerManagementLayer.createManageableLayer("Map Tiles", mapTilesLayer));
         VisManager.registerLayer(KeyToggleLayer.create("h", true, highwayLayer));
     }
 

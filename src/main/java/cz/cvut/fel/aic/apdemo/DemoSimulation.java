@@ -19,6 +19,7 @@
 package cz.cvut.fel.aic.apdemo;
 
 import com.google.inject.Injector;
+import cz.cvut.fel.aic.agentpolis.simmodel.mapInitialization.MapInitializer;
 import cz.cvut.fel.aic.agentpolis.simulator.creator.SimulationCreator;
 import cz.cvut.fel.aic.agentpolis.system.AgentPolisInitializer;
 import cz.cvut.fel.aic.apdemo.config.ApdemoConfig;
