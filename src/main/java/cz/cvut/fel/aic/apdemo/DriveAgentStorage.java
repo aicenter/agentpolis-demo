@@ -33,6 +33,6 @@ import cz.cvut.fel.aic.agentpolis.simmodel.environment.EntityStorage;
  * @author fido
  */
 @Singleton
-public class DriveAgentStorage extends EntityStorage<DriveAgent> {
+public class DriveAgentStorage extends EntityStorage<ADDriveAgent> {
 
 }

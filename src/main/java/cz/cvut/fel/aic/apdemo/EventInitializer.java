@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Czech Technical University in Prague.
  *
  * This library is free software; you can redistribute it and/or
@@ -20,22 +20,23 @@ package cz.cvut.fel.aic.apdemo;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import cz.cvut.fel.aic.agentpolis.simmodel.activity.activityFactory.AgentdriveActivityFactory;
+import cz.cvut.fel.aic.agentpolis.simmodel.entity.vehicle.ADPhysicalVehicle;
+import cz.cvut.fel.aic.agentpolis.simmodel.environment.agentdrive.util.Pair;
 import cz.cvut.fel.aic.apdemo.config.ApdemoConfig;
 import cz.cvut.fel.aic.apdemo.io.TimeTrip;
 import cz.cvut.fel.aic.alite.common.event.Event;
 import cz.cvut.fel.aic.alite.common.event.EventHandlerAdapter;
 import cz.cvut.fel.aic.alite.common.event.EventProcessor;
 import cz.cvut.fel.aic.agentpolis.siminfrastructure.planner.trip.Trip;
-import cz.cvut.fel.aic.agentpolis.simmodel.activity.activityFactory.StandardDriveFactory;
 import cz.cvut.fel.aic.agentpolis.simmodel.entity.vehicle.PhysicalVehicle;
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.EGraphType;
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.elements.SimulationEdge;
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.elements.SimulationNode;
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.networks.TransportNetworks;
 import cz.cvut.fel.aic.geographtools.Graph;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Random;
+
+import java.util.*;
 
 
 @Singleton
@@ -47,62 +48,74 @@ public class EventInitializer {
     private final ApdemoConfig config;
     private final Graph<SimulationNode, SimulationEdge> graph;
 
+    public Collection<Integer> agentIds;
+    public Map<Integer, Float> departures;
+
+
     @Inject
     public EventInitializer(EventProcessor eventProcessor, ApdemoConfig config,
-            DemandEventHandler demandEventHandler, TransportNetworks network) {
+                            DemandEventHandler demandEventHandler, TransportNetworks network) {
         this.eventProcessor = eventProcessor;
         this.demandEventHandler = demandEventHandler;
         this.config = config;
         this.graph = network.getGraph(EGraphType.HIGHWAY);
     }
 
-    private static final int NUMBER_OF_TRIPS = 2000;
+    private static final int NUMBER_OF_TRIPS = 30;
 
     public void initialize() {
-
+        departures = new HashMap<>();
         Random rand = new Random(RANDOM_SEED);
         List nodes = (List) this.graph.getAllNodes();
 
         for (int i = 0; i < NUMBER_OF_TRIPS; i++) {
-            long startTime = 1 + rand.nextInt(config.agentpolis.simulationDurationInMillis + 1);
+            long startTime = (i + 1) * 1000;//rand.nextInt(config.agentpolis.simulationDurationInMillis + 1000);
 
             SimulationNode startNode;
             SimulationNode destNode;
             do {
                 startNode = (SimulationNode) nodes.get(rand.nextInt(nodes.size()));
                 destNode = (SimulationNode) nodes.get(rand.nextInt(nodes.size()));
-            } while(startNode.equals(destNode));
-
-            eventProcessor.addEvent(null, demandEventHandler, null, new TimeTrip<SimulationNode>(startNode, destNode, startTime), startTime);
+            } while (startNode.equals(destNode) || startNode.getId() == 1 || destNode.getId() == 1);
+            Pair<Integer, TimeTrip<SimulationNode>> tripForAgent = new Pair<>(i, new TimeTrip<>(startNode, destNode, startTime));
+            departures.put(i, ((Long) startTime).floatValue() / 1000);
+            eventProcessor.addEvent(null, demandEventHandler, null, tripForAgent, startTime);
         }
     }
 
     public static class DemandEventHandler extends EventHandlerAdapter {
 
-        private final StandardDriveFactory congestedDriveFactory;
-        private final DriveAgentStorage driveAgentStorage;
-        private static int COUNTER_ID = 0;
+        private final AgentdriveActivityFactory agentdriveActivityFactory;
+        private final AgentdriveAgentStorage driveAgentStorage;
 
         @Inject
         public DemandEventHandler(
-                 StandardDriveFactory congestedDriveFactory, DriveAgentStorage driveAgentStorage) {
-            this.congestedDriveFactory = congestedDriveFactory;
+                AgentdriveActivityFactory agentdriveActivityFactory, AgentdriveAgentStorage driveAgentStorage) {
+            this.agentdriveActivityFactory = agentdriveActivityFactory;
             this.driveAgentStorage = driveAgentStorage;
         }
 
         @Override
         public void handleEvent(Event event) {
-            Trip<SimulationNode> trip = (Trip) event.getContent();
+            Pair<Integer, TimeTrip<SimulationNode>> pair = (Pair) event.getContent();
+            Trip<SimulationNode> trip = (Trip) pair.getValue();
             LinkedList nodes = trip.getLocations();
             SimulationNode startNode = (SimulationNode) nodes.get(0);
             SimulationNode finishNode = (SimulationNode) nodes.get(1);
 
-            PhysicalVehicle vehicle = new PhysicalVehicle("Test vehicle " + COUNTER_ID, DemoType.VEHICLE, 5, 2, EGraphType.HIGHWAY, startNode, 15);
-            DriveAgent driveAgent = new DriveAgent("Test driver " + COUNTER_ID, startNode);
+            ADPhysicalVehicle vehicle = new ADPhysicalVehicle(pair.getKey().toString(), DemoType.VEHICLE, 3, EGraphType.HIGHWAY, startNode, 15);
+            ADDriveAgent driveAgent = new ADDriveAgent(pair.getKey().toString(), startNode);
 
-            congestedDriveFactory.create(driveAgent, vehicle, finishNode).run();
+            agentdriveActivityFactory.create(driveAgent, vehicle, finishNode).run();
             driveAgentStorage.addEntity(driveAgent);
-            COUNTER_ID++;
         }
+    }
+
+    public Collection<Integer> getAgentIds() {
+        return agentIds;
+    }
+
+    public Map<Integer, Float> getDepartures() {
+        return departures;
     }
 }

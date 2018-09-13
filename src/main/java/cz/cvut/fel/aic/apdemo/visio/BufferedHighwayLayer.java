@@ -75,8 +75,8 @@ public class BufferedHighwayLayer extends HighwayLayer {
             newCanvas.setStroke(new BasicStroke(8));
 
             for (SimulationEdge edge : graph.getAllEdges()) {
-                Point2d from = getPositionOnImage(edge.fromId);
-                Point2d to = getPositionOnImage(edge.toId);
+                Point2d from = getPositionOnImage(edge.getFromNode().id);
+                Point2d to = getPositionOnImage(edge.getToNode().getId());
                 Line2D line2d = new Line2D.Double(from.x, from.y, to.x, to.y);
                 newCanvas.draw(line2d);
             }

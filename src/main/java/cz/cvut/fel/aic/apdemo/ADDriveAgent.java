@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Czech Technical University in Prague.
  *
  * This library is free software; you can redistribute it and/or
@@ -18,26 +18,33 @@
  */
 package cz.cvut.fel.aic.apdemo;
 
+import cz.cvut.fel.aic.agentpolis.simmodel.ADAgent;
 import cz.cvut.fel.aic.agentpolis.simmodel.Agent;
+import cz.cvut.fel.aic.agentpolis.simmodel.agent.ADDriver;
 import cz.cvut.fel.aic.agentpolis.simmodel.agent.Driver;
 import cz.cvut.fel.aic.agentpolis.simmodel.entity.EntityType;
+import cz.cvut.fel.aic.agentpolis.simmodel.entity.vehicle.ADPhysicalVehicle;
 import cz.cvut.fel.aic.agentpolis.simmodel.entity.vehicle.PhysicalVehicle;
 import cz.cvut.fel.aic.agentpolis.simmodel.agent.DelayData;
+import cz.cvut.fel.aic.agentpolis.simmodel.entity.vehicle.Vehicle;
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.elements.SimulationNode;
 
 /**
- *
  * @author fido
  */
-public class DriveAgent extends Agent implements Driver<PhysicalVehicle> {
+public class ADDriveAgent extends ADAgent implements ADDriver<ADPhysicalVehicle> {
 
     private DelayData delayData;
 
-    private PhysicalVehicle drivenCar;
+    private ADPhysicalVehicle drivenCar;
 
     private SimulationNode targetNode;
 
-    public DriveAgent(String agentId, SimulationNode position) {
+    private double posX;
+
+    private double posY;
+
+    public ADDriveAgent(String agentId, SimulationNode position) {
         super(agentId, position);
     }
 
@@ -47,12 +54,12 @@ public class DriveAgent extends Agent implements Driver<PhysicalVehicle> {
     }
 
     @Override
-    public PhysicalVehicle getVehicle() {
+    public ADPhysicalVehicle getVehicle() {
         return drivenCar;
     }
 
     @Override
-    public void startDriving(PhysicalVehicle vehicle) {
+    public void startDriving(ADPhysicalVehicle vehicle) {
         this.drivenCar = vehicle;
         vehicle.setDriver(this);
     }
@@ -88,4 +95,19 @@ public class DriveAgent extends Agent implements Driver<PhysicalVehicle> {
         return 15;
     }
 
+    @Override
+    public void setPos(double x, double y) {
+        posX = x;
+        posY = y;
+    }
+
+    @Override
+    public double getPosX() {
+        return posY;
+    }
+
+    @Override
+    public double getPosY() {
+        return posX;
+    }
 }

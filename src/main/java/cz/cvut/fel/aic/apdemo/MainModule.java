@@ -19,8 +19,17 @@
 package cz.cvut.fel.aic.apdemo;
 
 import com.google.common.collect.Sets;
+import com.google.inject.Inject;
+import com.google.inject.Provides;
+import com.google.inject.Singleton;
 import com.google.inject.TypeLiteral;
 import com.google.inject.name.Names;
+import cz.cvut.fel.aic.agentpolis.config.AgentpolisConfig;
+import cz.cvut.fel.aic.agentpolis.siminfrastructure.time.TimeProvider;
+import cz.cvut.fel.aic.agentpolis.simmodel.environment.agentdrive.AgentDriveModel;
+import cz.cvut.fel.aic.agentpolis.simmodel.environment.congestion.ModelConstructionFailedException;
+import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.networks.TransportNetworks;
+import cz.cvut.fel.aic.agentpolis.simulator.SimulationProvider;
 import cz.cvut.fel.aic.agentpolis.simulator.visualization.visio.VisioInitializer;
 import cz.cvut.fel.aic.agentpolis.system.StandardAgentPolisModule;
 import cz.cvut.fel.aic.apdemo.config.ApdemoConfig;
@@ -55,4 +64,6 @@ public class MainModule extends StandardAgentPolisModule {
         }).toInstance(Sets.immutableEnumSet(TransportMode.CAR));
         bind(ApdemoConfig.class).toInstance(this.config);
     }
+
+
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Czech Technical University in Prague.
  *
  * This library is free software; you can redistribute it and/or
@@ -18,6 +18,8 @@
  */
 package cz.cvut.fel.aic.apdemo.visio;
 
+import cz.cvut.fel.aic.agentpolis.config.AgentpolisConfig;
+import cz.cvut.fel.aic.agentpolis.simmodel.entity.AgentPolisEntity;
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.networks.RailwayNetwork;
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.networks.BikewayNetwork;
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.networks.TramwayNetwork;
@@ -42,25 +44,30 @@ public class DemoVisioInItializer extends DefaultVisioInitializer {
     protected final HighwayLayer highwayLayer;
     private final VisLayer backgroundLayer;
     private final CarLayer carLayer;
+    private final ADLayer adLayer;
+    private final ScreenRecordingLayer srl;
     private final MapTilesLayer mapTilesLayer;
 
     @Inject
-    public DemoVisioInItializer(PedestrianNetwork pedestrianNetwork, BikewayNetwork bikewayNetwork,
+    public DemoVisioInItializer(Simulation simulation, PedestrianNetwork pedestrianNetwork, BikewayNetwork bikewayNetwork,
                                 HighwayNetwork highwayNetwork, TramwayNetwork tramwayNetwork, MetrowayNetwork metrowayNetwork,
                                 RailwayNetwork railwayNetwork, NodeIdLayer nodeIdLayer, HighwayLayer highwayLayer,
-                                SimulationControlLayer simulationControlLayer, GridLayer gridLayer, CarLayer carLayer, MapTilesLayer mapTiles) {
-        super(pedestrianNetwork, bikewayNetwork, highwayNetwork, tramwayNetwork, metrowayNetwork, railwayNetwork,
-                simulationControlLayer, gridLayer);
+                                SimulationControlLayer simulationControlLayer, GridLayer gridLayer, CarLayer carLayer, ADLayer adLayer, MapTilesLayer mapTiles, ScreenRecordingLayer srl, AgentpolisConfig apc) {
+        super(simulation, pedestrianNetwork, bikewayNetwork, highwayNetwork, tramwayNetwork, metrowayNetwork, railwayNetwork,
+                simulationControlLayer, gridLayer, apc);
         this.nodeIdLayer = nodeIdLayer;
         this.highwayLayer = highwayLayer;
         this.carLayer = carLayer;
+        this.adLayer = adLayer;
+        this.srl = srl;
         this.backgroundLayer = ColorLayer.create(Color.white);
         this.mapTilesLayer = mapTiles;
     }
 
     @Override
     protected void initEntityLayers(Simulation simulation) {
-        VisManager.registerLayer(carLayer);
+        //VisManager.registerLayer(carLayer);
+        VisManager.registerLayer(adLayer);
     }
 
     @Override
@@ -69,7 +76,8 @@ public class DemoVisioInItializer extends DefaultVisioInitializer {
 
     @Override
     protected void initLayersAfterEntityLayers() {
-
+        VisManager.registerLayer(srl);
+        VisManager.registerLayer(nodeIdLayer);
     }
 
     @Override

@@ -1,62 +1,50 @@
-/*
- * Copyright (C) 2017 Czech Technical University in Prague.
- *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
- *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
- * MA 02110-1301  USA
- */
 package cz.cvut.fel.aic.apdemo.visio;
 
 import com.google.inject.Inject;
 import cz.cvut.fel.aic.agentpolis.config.AgentpolisConfig;
-import cz.cvut.fel.aic.apdemo.AgentdriveAgentStorage;
-import cz.cvut.fel.aic.apdemo.ADDriveAgent;
-
-import cz.cvut.fel.aic.alite.vis.Vis;
+import cz.cvut.fel.aic.agentpolis.simmodel.entity.vehicle.ADPhysicalVehicle;
 import cz.cvut.fel.aic.agentpolis.simmodel.entity.vehicle.Vehicle;
+import cz.cvut.fel.aic.agentpolis.simmodel.environment.agentdrive.environment.roadnet.Network;
+import cz.cvut.fel.aic.agentpolis.simmodel.environment.agentdrive.environment.roadnet.XMLReader;
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.elements.SimulationNode;
 import cz.cvut.fel.aic.agentpolis.simulator.visualization.visio.EntityLayer;
+import cz.cvut.fel.aic.agentpolis.simulator.visualization.visio.PositionUtil;
 import cz.cvut.fel.aic.agentpolis.simulator.visualization.visio.VisioUtils;
+import cz.cvut.fel.aic.alite.vis.Vis;
+import cz.cvut.fel.aic.apdemo.ADDriveAgent;
+import cz.cvut.fel.aic.apdemo.AgentdriveAgentStorage;
+import cz.cvut.fel.aic.geographtools.GPSLocation;
 
+import javax.vecmath.Point2d;
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.GeneralPath;
 import java.awt.geom.Path2D;
 import java.util.ArrayList;
-import javax.vecmath.Point2d;
 
-/**
- * @author F-I-D-O
- */
-public class CarLayer extends EntityLayer<ADDriveAgent> {
+public class ADLayer extends EntityLayer<ADDriveAgent> {
 
     private Path2D CAR_REPRESENTATION_SHAPE;
 
     @Inject
-    public CarLayer(AgentdriveAgentStorage driveAgentStorage, AgentpolisConfig apc) {
+    public ADLayer(AgentdriveAgentStorage driveAgentStorage, AgentpolisConfig apc) {
         super(driveAgentStorage, apc);
     }
 
     @Override
     protected Point2d getEntityPosition(ADDriveAgent entity) {
-        Vehicle vehicle = entity.getVehicle();
+        ADPhysicalVehicle vehicle = entity.getVehicle();
         if (vehicle == null) {
-            return positionUtil.getCanvasPosition(entity);
+            return new Point2d(entity.getPosX(), entity.getPosY());
         }
-        Point2d p2d = positionUtil.getCanvasPositionInterpolatedForVehicle(vehicle);
+        double x = vehicle.getPosX();
+        double y = vehicle.getPosY();
+        if (x == Double.MAX_VALUE && y == Double.MAX_VALUE)
+            return positionUtil.getCanvasPosition(vehicle);
+        Point2d p2d = new Point2d(Vis.transX(((x - Network.OFFSET_X))), Vis.transY(-(y - Network.OFFSET_Y)));
         return p2d;
     }
+
 
     @Override
     protected Point2d getEntityPositionInTime(ADDriveAgent entity, long time) {
@@ -65,7 +53,7 @@ public class CarLayer extends EntityLayer<ADDriveAgent> {
 
     @Override
     protected Color getEntityDrawColor(ADDriveAgent driveAgent) {
-        return Color.MAGENTA;
+        return Color.blue;
     }
 
     @Override
@@ -81,12 +69,48 @@ public class CarLayer extends EntityLayer<ADDriveAgent> {
     // not used
     // @Override
     protected int getEntityDrawRadius(ADDriveAgent driveAgent) {
-        return 0;
+        return 20;
     }
 
+    protected void drawEntity(ADDriveAgent entity, Point2d entityPosition, Graphics2D canvas, Dimension dim) {
+        ADDriveAgent representative = entity;
+
+        if (CAR_REPRESENTATION_SHAPE == null) {
+            CAR_REPRESENTATION_SHAPE = createCarShape((float) representative.getVehicle().getLength());
+        }
+
+        Color color = getEntityDrawColor(entity);
+        canvas.setColor(color);
+        double radius = Vis.transW(getEntityDrawRadius(entity));
+        int width = (int) Math.round(radius * 2);
+
+        int x1 = (int) (entityPosition.getX() - radius);
+        int y1 = (int) (entityPosition.getY() - radius);
+        int x2 = (int) (entityPosition.getX() + radius);
+        int y2 = (int) (entityPosition.getY() + radius);
+
+        if (x2 > 0 && x1 < dim.width && y2 > 0 && y1 < dim.height) {
+            SimulationNode target = representative.getTargetNode();
+
+            double angle = 0;
+            if (target != null) {
+                SimulationNode position = representative.getPosition();
+                angle = getAngle(position, target);
+            }
+
+            AffineTransform trans
+                    = AffineTransform.getTranslateInstance(entityPosition.getX(), entityPosition.getY());
+            trans.rotate(-angle);
+
+            Shape s =  CAR_REPRESENTATION_SHAPE.createTransformedShape(trans);
+            canvas.fill(s);
+
+        }
+    }
     @Override
     protected void drawEntities(ArrayList<ADDriveAgent> entities, Point2d entityPosition, Graphics2D canvas, Dimension dim) {
         ADDriveAgent representative = entities.get(0);
+
         if (CAR_REPRESENTATION_SHAPE == null) {
             CAR_REPRESENTATION_SHAPE = createCarShape((float) representative.getVehicle().getLength());
         }
@@ -114,8 +138,9 @@ public class CarLayer extends EntityLayer<ADDriveAgent> {
                     = AffineTransform.getTranslateInstance(entityPosition.getX(), entityPosition.getY());
             trans.rotate(-angle);
 
-            Shape s = CAR_REPRESENTATION_SHAPE.createTransformedShape(trans);
+            Shape s =  CAR_REPRESENTATION_SHAPE.createTransformedShape(trans);
             canvas.fill(s);
+
         }
 
         if (entities.size() > 1) {
@@ -125,8 +150,9 @@ public class CarLayer extends EntityLayer<ADDriveAgent> {
         }
     }
 
+
     private static Path2D createCarShape(float s) {
-        s = 2 * s;
+        s = 5 * s;
         final GeneralPath p0 = new GeneralPath();
         p0.moveTo(-s, 0f);
         p0.lineTo(0, 4f);
@@ -140,4 +166,5 @@ public class CarLayer extends EntityLayer<ADDriveAgent> {
         double dx = target.getLongitudeProjected1E2() - position.getLongitudeProjected1E2();
         return Math.atan2(dy, dx);
     }
+
 }

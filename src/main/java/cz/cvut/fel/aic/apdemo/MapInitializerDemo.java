@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Czech Technical University in Prague.
  *
  * This library is free software; you can redistribute it and/or
@@ -20,31 +20,35 @@ package cz.cvut.fel.aic.apdemo;
 
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
+import cz.cvut.fel.aic.agentpolis.simmodel.environment.agentdrive.AgentDriveModel;
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.EGraphType;
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.GraphType;
+import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.elements.EdgeShape;
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.elements.SimulationNode;
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.elements.SimulationEdge;
 import cz.cvut.fel.aic.agentpolis.simulator.MapData;
 import cz.cvut.fel.aic.agentpolis.simulator.MapDataGenerator;
-import cz.cvut.fel.aic.apdemo.graphbuilder.SimulationNodeFactory;
-import cz.cvut.fel.aic.apdemo.graphbuilder.SimulationEdgeFactory;
+
 import cz.cvut.fel.aic.geographtools.Graph;
+import cz.cvut.fel.aic.geographtools.GraphBuilder;
 import cz.cvut.fel.aic.geographtools.util.Transformer;
 import cz.cvut.fel.aic.graphimporter.GraphCreator;
 import cz.cvut.fel.aic.geographtools.TransportMode;
 import cz.cvut.fel.aic.graphimporter.Importer;
 import cz.cvut.fel.aic.graphimporter.geojson.GeoJSONReader;
 import cz.cvut.fel.aic.graphimporter.osm.OsmImporter;
+import cz.cvut.fel.aic.graphimporter.structurebuilders.EdgeBuilder;
 import org.apache.log4j.Logger;
 
 import java.io.*;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-public class MapInitializer {
+public class MapInitializerDemo {
 
-    private static final Logger LOGGER = Logger.getLogger(MapInitializer.class);
+    private static final Logger LOGGER = Logger.getLogger(MapInitializerDemo.class);
     private final String mapFile;
     private final String geojsonEdges;
     private final String geojsonNodes;
@@ -52,8 +56,8 @@ public class MapInitializer {
     private final Set<TransportMode> allowedOsmModes;
 
     @Inject
-    public MapInitializer(Transformer projection, @Named("osm File") String mapFile, @Named("geojson Edges") String geojsonEdges,
-                          @Named("geojson Nodes") String geojsonNodes, Set<TransportMode> allowedOsmModes) {
+    public MapInitializerDemo(Transformer projection, @Named("osm File") String mapFile, @Named("geojson Edges") String geojsonEdges,
+                              @Named("geojson Nodes") String geojsonNodes, Set<TransportMode> allowedOsmModes) {
         this.mapFile = mapFile;
         this.projection = projection;
         this.allowedOsmModes = allowedOsmModes;
@@ -73,10 +77,8 @@ public class MapInitializer {
             importer = new OsmImporter(new File(mapFile), allowedOsmModes, projection);
         }
 
-        GraphCreator<SimulationNode, SimulationEdge> graphCreator = new GraphCreator(projection,
-                true, true, importer, new SimulationNodeFactory(), new SimulationEdgeFactory());
-
-        graphs.put(EGraphType.HIGHWAY, graphCreator.getMap());
+        GraphBuilder<SimulationNode, SimulationEdge> graphBuilder = MapInitializerDemo.getCompleteGraph(10);
+        graphs.put(EGraphType.HIGHWAY, graphBuilder.createGraph());
 
         LOGGER.info("Graphs imported, highway graph details: " + graphs.get(EGraphType.HIGHWAY));
         return MapDataGenerator.getMap(graphs);
@@ -105,7 +107,7 @@ public class MapInitializer {
         File folder = new File(System.getProperty("user.dir"));
         File[] listOfFiles = folder.listFiles();
         for (int i = 0; i < listOfFiles.length; i++) {
-           //  System.out.println(listOfFiles[i].getName());
+            //  System.out.println(listOfFiles[i].getName());
             String extension = getExtension(listOfFiles[i].getName());
             // System.out.println(extension);
             if ("ser".equals(extension)) {
@@ -116,4 +118,33 @@ public class MapInitializer {
         }
     }
 
+    public static GraphBuilder<SimulationNode, SimulationEdge> getCompleteGraph(int nodeCount) {
+        GraphBuilder<SimulationNode, SimulationEdge> graphBuilder = new GraphBuilder<>();
+
+        int radius = 1000;
+
+        for (int i = 0; i < nodeCount; i++) {
+            double angle = 2 * Math.PI / nodeCount * i;
+
+            int x = (int) Math.round(radius * Math.cos(angle));
+            int y = (int) Math.round(radius * Math.sin(angle));
+
+
+            SimulationNode node = new SimulationNode(i, 0, x, y, x, y, 0);
+
+            graphBuilder.addNode(node);
+
+            for (int j = 0; j < i; j++) {
+                SimulationEdge edge1 = new SimulationEdge(graphBuilder.getNode(i), graphBuilder.getNode(j),
+                        0, 0, 0, 100, 40, 1, new EdgeShape(Arrays.asList(graphBuilder.getNode(i), graphBuilder.getNode(j))));
+                SimulationEdge edge2 = new SimulationEdge(graphBuilder.getNode(j), graphBuilder.getNode(i),
+                        0, 0, 0, 100, 40, 1, new EdgeShape(Arrays.asList(graphBuilder.getNode(j), graphBuilder.getNode(i))));
+
+                graphBuilder.addEdge(edge1);
+                graphBuilder.addEdge(edge2);
+            }
+        }
+
+        return graphBuilder;
+    }
 }
