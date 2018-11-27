@@ -13,7 +13,7 @@ import cz.cvut.fel.aic.graphimporter.structurebuilders.internal.InternalNode;
  *
  * @author fido
  */
-public class SimulationNodeFactory extends NodeFactory<SimulationNode> {
+public class SimulationNodeFactory implements NodeFactory<SimulationNode> {
 
     @Override
     public SimulationNode createNode(InternalNode internalNode) {

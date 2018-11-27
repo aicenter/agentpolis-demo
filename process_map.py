@@ -6,24 +6,16 @@ import time
 import codecs
 import sys
 import platform
-from roadmaptools import clean_geojson, simplify_graph, estimate_speed_from_osm, calculate_curvature, \
-    export_nodes_and_id_maker, prepare_geojson_to_agentpolisdemo
+import roadmaptools.clean_geojson
+from roadmaptools import simplify_graph, estimate_speed_from_osm, calculate_curvature, \
+    export_nodes_and_id_maker, prepare_geojson_to_agentpolisdemo, download_map, inout
 from roadmaptools import osmtogeojson
 
 
 def clean_geojson_files(input_filename, output_filename):
     print_info('Cleaning geoJSON... ', end='')
     start_time = time.time()
-
-    input_stream = codecs.open(input_filename, encoding='utf8')
-    output_stream = open(output_filename, 'w')
-
-    geojson_file = clean_geojson.load_geojson(input_stream)
-    geojson_out = clean_geojson.get_cleaned_geojson(geojson_file)
-    clean_geojson.save_geojson(geojson_out, output_stream)
-    input_stream.close()
-    output_stream.close()
-
+    roadmaptools.clean_geojson.clean_geojson_files(input_filename, output_filename)
     print_info('done. (%.2f secs)' % (time.time() - start_time))
 
 
@@ -31,16 +23,7 @@ def simplify_geojson(input_filename, output_filename):
     print_info('Simplifying geoJSON... ', end='')
     start_time = time.time()
 
-    input_stream = codecs.open(input_filename, encoding='utf8')
-    output_stream = open(output_filename, 'w')
-
-    # l_check set True whether you don't want to simplify edges with different number of lanes
-    # c_check set True whether you don't want to simplify edges with different curvature
-    geojson_file = simplify_graph.load_geojson(input_stream)
-    geojson_out = simplify_graph.get_simplified_geojson(geojson_file, l_check=False, c_check=False)
-    simplify_graph.save_geojson(geojson_out, output_stream)
-    input_stream.close()
-    output_stream.close()
+    roadmaptools.simplify_graph.simplify_geojson(input_filename, output_filename)
 
     print_info('done. (%.2f secs)' % (time.time() - start_time))
 
@@ -99,17 +82,10 @@ def generate_agentpolisdemo_files(input_filename, output_filename_edges, output_
     print_info('Preparing files for agentpolis-demo... ', end='')
     start_time = time.time()
 
-    input_stream = codecs.open(input_filename, encoding='utf8')
-    output_stream_edges = open(output_filename_edges, 'w')
-    output_stream_nodes = open(output_filename_nodes, 'w')
-
-    geojson_file = prepare_geojson_to_agentpolisdemo.load_geojson(input_stream)
+    geojson_file = roadmaptools.inout.load_geojson(input_filename)
     nodes, edges = prepare_geojson_to_agentpolisdemo.get_nodes_and_edges_for_agentpolisdemo(geojson_file)
-    prepare_geojson_to_agentpolisdemo.save_geojson(nodes, output_stream_edges)
-    prepare_geojson_to_agentpolisdemo.save_geojson(edges, output_stream_nodes)
-    input_stream.close()
-    output_stream_edges.close()
-    output_stream_nodes.close()
+    roadmaptools.inout.save_geojson(nodes, output_filename_edges)
+    roadmaptools.inout.save_geojson(edges, output_filename_nodes)
 
     print_info('done. (%.2f secs)' % (time.time() - start_time))
 
@@ -134,7 +110,7 @@ def get_all_params_osmfilter(config_file):
 
 def get_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('MAP', type=str, action='store', help='input map in OSM format')
+#    parser.add_argument('MAP', type=str, action='store', help='input map in OSM format')
     parser.add_argument('OUTDIR', type=str, action='store', help='the directory with resulting geojson files')
     parser.add_argument('--version', action='version', version='%(prog)s 0.1')
     return parser.parse_args()
@@ -210,9 +186,9 @@ if __name__ == '__main__':
     args = get_args()
 
     # check if the input file exists
-    if not os.path.exists(args.MAP):
-        print_err('The input file %s does not exist!' % args.MAP)
-        exit(1)
+#    if not os.path.exists(args.MAP):
+#       print_err('The input file %s does not exist!' % args.MAP)
+#        exit(1)
 
     # check if the data folder exists, otherwise create the folder
     if not os.path.isdir(args.OUTDIR):
@@ -220,10 +196,12 @@ if __name__ == '__main__':
         print_info('Created directory %s.' % args.OUTDIR)
 
     # filter OSM elements, keep only roads
-    filter_osm_file(args.MAP, os.path.join(args.OUTDIR, 'output.osm'))
+#    filter_osm_file(args.MAP, os.path.join(args.OUTDIR, 'output.osm'))
 
     # convert road network data from osm to geojson
-    convert_osm_to_geojson(os.path.join(args.OUTDIR, 'output.osm'), os.path.join(args.OUTDIR, 'output.geojson'))
+#    convert_osm_to_geojson(os.path.join(args.OUTDIR, 'output.osm'), os.path.join(args.OUTDIR, 'output.geojson'))
+
+    download_map.download_cities([(49.94, 14.22, 50.17, 14.71), (49.11, 16.42, 49.30,16.72)], os.path.join(args.OUTDIR, 'output.geojson'));
 
     # remove all unused features from map
     clean_geojson_files(os.path.join(args.OUTDIR, 'output.geojson'), os.path.join(args.OUTDIR, 'output-cleaned.geojson'))
@@ -244,7 +222,8 @@ if __name__ == '__main__':
     generate_agentpolisdemo_files(os.path.join(args.OUTDIR, 'output-result.geojson'), os.path.join(args.OUTDIR, 'edges.geojson'), os.path.join(args.OUTDIR, 'nodes.geojson'))
 
     # remove temporary files
-    for f in ['output.osm', 'output.geojson', 'output-cleaned.geojson', 'output-simplified.geojson',
+    #output.osm
+    for f in ['output.geojson', 'output-cleaned.geojson', 'output-simplified.geojson',
               'output-speeds.geojson', 'output-curvatures.geojson']:
         os.remove(os.path.join(args.OUTDIR, f))
 

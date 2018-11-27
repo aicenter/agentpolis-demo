@@ -53,7 +53,7 @@ public class MapInitializer {
 
     @Inject
     public MapInitializer(Transformer projection, @Named("osm File") String mapFile, @Named("geojson Edges") String geojsonEdges,
-                          @Named("geojson Nodes") String geojsonNodes, Set<TransportMode> allowedOsmModes) {
+            @Named("geojson Nodes") String geojsonNodes, Set<TransportMode> allowedOsmModes) {
         this.mapFile = mapFile;
         this.projection = projection;
         this.allowedOsmModes = allowedOsmModes;
@@ -66,14 +66,16 @@ public class MapInitializer {
         removeTemporaryFiles();
 
         Importer importer = null;
-        if (geojsonEdges != null && geojsonNodes != null && new File(geojsonEdges).exists() && new File(geojsonNodes).exists()) {
+        if (geojsonEdges != null && geojsonNodes != null) {
+            File geojsonEdgesFile = new File(geojsonEdges);
+            File geojsonNodesFile = new File(geojsonNodes);
             importer = new GeoJSONReader(geojsonEdges, geojsonNodes, projection);
         }
         if (importer == null) {
             importer = new OsmImporter(new File(mapFile), allowedOsmModes, projection);
         }
 
-        GraphCreator<SimulationNode, SimulationEdge> graphCreator = new GraphCreator(projection,
+        GraphCreator<SimulationNode, SimulationEdge> graphCreator = new GraphCreator(
                 true, true, importer, new SimulationNodeFactory(), new SimulationEdgeFactory());
 
         graphs.put(EGraphType.HIGHWAY, graphCreator.getMap());
@@ -105,7 +107,7 @@ public class MapInitializer {
         File folder = new File(System.getProperty("user.dir"));
         File[] listOfFiles = folder.listFiles();
         for (int i = 0; i < listOfFiles.length; i++) {
-           //  System.out.println(listOfFiles[i].getName());
+            //  System.out.println(listOfFiles[i].getName());
             String extension = getExtension(listOfFiles[i].getName());
             // System.out.println(extension);
             if ("ser".equals(extension)) {
