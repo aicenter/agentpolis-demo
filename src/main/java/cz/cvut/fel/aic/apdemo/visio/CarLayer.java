@@ -20,27 +20,13 @@ package cz.cvut.fel.aic.apdemo.visio;
 
 import com.google.inject.Inject;
 import cz.cvut.fel.aic.agentpolis.config.AgentpolisConfig;
-import cz.cvut.fel.aic.agentpolis.simmodel.entity.vehicle.PhysicalTransportVehicle;
 import cz.cvut.fel.aic.agentpolis.simmodel.entity.vehicle.PhysicalVehicle;
-import cz.cvut.fel.aic.apdemo.DriveAgent;
-import cz.cvut.fel.aic.apdemo.DriveAgentStorage;
 
-import cz.cvut.fel.aic.alite.vis.Vis;
-import cz.cvut.fel.aic.agentpolis.simmodel.entity.vehicle.Vehicle;
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.VehicleStorage;
-import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.elements.SimulationNode;
-import cz.cvut.fel.aic.agentpolis.simulator.visualization.visio.EntityLayer;
-import static cz.cvut.fel.aic.agentpolis.simulator.visualization.visio.EntityLayer.DEFAULT_TEXT_BACKGROUND_COLOR;
-import static cz.cvut.fel.aic.agentpolis.simulator.visualization.visio.EntityLayer.DEFAULT_TEXT_MARGIN_BOTTOM;
 import cz.cvut.fel.aic.agentpolis.simulator.visualization.visio.VehicleLayer;
-import cz.cvut.fel.aic.agentpolis.simulator.visualization.visio.VisioUtils;
 
 import java.awt.*;
-import java.awt.geom.AffineTransform;
-import java.awt.geom.GeneralPath;
 import java.awt.geom.Path2D;
-import java.util.ArrayList;
-import javax.vecmath.Point2d;
 
 /**
  *
@@ -67,12 +53,12 @@ public class CarLayer extends VehicleLayer<PhysicalVehicle> {
     
     @Override
     protected float getVehicleStaticWidth(PhysicalVehicle vehicle) {
-        return 3;
+        return 10;
     }
     
     @Override
     protected float getVehicleWidth(PhysicalVehicle vehicle) {
-        return 3;
+        return 10;
     }
 
     @Override
