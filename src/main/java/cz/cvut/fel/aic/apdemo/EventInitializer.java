@@ -98,7 +98,7 @@ public class EventInitializer {
             SimulationNode startNode = (SimulationNode) nodes.get(0);
             SimulationNode finishNode = (SimulationNode) nodes.get(1);
 
-            PhysicalVehicle vehicle = new PhysicalVehicle("Test vehicle " + COUNTER_ID, DemoType.VEHICLE, 5, EGraphType.HIGHWAY, startNode, 15);
+            PhysicalVehicle vehicle = new PhysicalVehicle("Test vehicle " + COUNTER_ID, DemoType.VEHICLE, 12, EGraphType.HIGHWAY, startNode, 15);
             DriveAgent driveAgent = new DriveAgent("Test driver " + COUNTER_ID, startNode);
 
             congestedDriveFactory.create(driveAgent, vehicle, finishNode).run();
