@@ -69,7 +69,9 @@ public class DemoVisioInItializer extends DefaultVisioInitializer {
         manageableHighwayLayer.toggle();
         VisManager.registerLayer(manageableHighwayLayer);    
         VisManager.registerLayer(layerManagementLayer.createManageableLayer("Vehicles", carLayer));
-        VisManager.registerLayer(layerManagementLayer.createManageableLayer("Node ID layer", nodeIdLayer));
+        ManageableLayer manageableNodeIdLayer = layerManagementLayer.createManageableLayer("Node ID layer", nodeIdLayer);  
+        manageableNodeIdLayer.toggle();
+        VisManager.registerLayer(manageableNodeIdLayer);
     }
 
     @Override
