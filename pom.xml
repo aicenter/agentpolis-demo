@@ -1,89 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+	<modelVersion>4.0.0</modelVersion>
 
-    <groupId>cz.cvut.fel.aic</groupId>
-    <artifactId>apdemo</artifactId>
-    <version>1.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+	<groupId>cz.cvut.fel.aic</groupId>
+	<artifactId>apdemo</artifactId>
+	<version>1.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 
-    <description>The AgentPolis demo.</description>
+	<description>The AgentPolis demo.</description>
 
-    <parent>
-        <groupId>cz.cvut.fel.aic</groupId>
-        <artifactId>aicenter-parent</artifactId>
-        <version>1.0</version>
-    </parent>
+	<parent>
+		<groupId>cz.cvut.fel.aic</groupId>
+		<artifactId>aicenter-parent</artifactId>
+		<version>1.0</version>
+	</parent>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.20</version>
-                <configuration>
-                    <trimStackTrace>false</trimStackTrace>
-                    <!--<skipTests>true</skipTests>-->
-                    <excludes>
-                        <exclude>**/Simulation10MinuteTest.java</exclude>
-                        <exclude>**/SimulationMinuteTest.java</exclude>
-                    </excludes>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-            </plugin>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.20</version>
+				<configuration>
+					<trimStackTrace>false</trimStackTrace>
+					<!--<skipTests>true</skipTests>-->
+					<excludes>
+						<exclude>**/Simulation10MinuteTest.java</exclude>
+						<exclude>**/SimulationMinuteTest.java</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+			</plugin>
 
-            <plugin>
-                <groupId>ninja.fido.config</groupId>
-                <artifactId>config-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+			<plugin>
+				<groupId>ninja.fido.config</groupId>
+				<artifactId>config-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 
-    <dependencies>
+	<dependencies>
 
-        <!-- AIC projects -->
-        <dependency>
-            <groupId>cz.cvut.fel.aic</groupId>
-            <artifactId>agentpolis</artifactId>
-            <version>5.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>cz.cvut.fel.aic</groupId>
-            <artifactId>graph-importer</artifactId>
-            <version>2.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>ninja.fido.config</groupId>
-            <artifactId>core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>cz.cvut.fel.aic</groupId>
-            <artifactId>geographtools</artifactId>
-            <version>1.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>cz.cvut.fel.aic</groupId>
-            <artifactId>alite</artifactId>
-            <version>1.3-SNAPSHOT</version>
-        </dependency>
+		<!-- AIC projects -->
+		<dependency>
+			<groupId>cz.cvut.fel.aic</groupId>
+			<artifactId>agentpolis</artifactId>
+			<version>5.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>cz.cvut.fel.aic</groupId>
+			<artifactId>graph-importer</artifactId>
+			<version>2.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>ninja.fido.config</groupId>
+			<artifactId>core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>cz.cvut.fel.aic</groupId>
+			<artifactId>geographtools</artifactId>
+			<version>1.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>cz.cvut.fel.aic</groupId>
+			<artifactId>alite</artifactId>
+			<version>1.3-SNAPSHOT</version>
+		</dependency>
 
-        <!-- External lib -->
+		<!-- External lib -->
 
-    </dependencies>
-        
-    <repositories>
-        <repository>
-            <snapshots>
-                <updatePolicy>always</updatePolicy>
-            </snapshots>
-            <releases />
-            <id>atg-repo</id>
-            <name>atg-repo</name>
-            <url>http://jones.felk.cvut.cz/artifactory/repo</url>
-        </repository>
-    </repositories> 
-    
+	</dependencies>
+		
+	<repositories>
+		<repository>
+			<snapshots>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+			<releases />
+			<id>atg-repo</id>
+			<name>atg-repo</name>
+			<url>http://jones.felk.cvut.cz/artifactory/repo</url>
+		</repository>
+	</repositories> 
+	
 </project>
