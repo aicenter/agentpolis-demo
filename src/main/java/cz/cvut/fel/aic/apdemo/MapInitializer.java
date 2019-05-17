@@ -44,73 +44,73 @@ import java.util.Set;
 
 public class MapInitializer {
 
-    private static final Logger LOGGER = Logger.getLogger(MapInitializer.class);
-    private final String geojsonEdges;
-    private final String geojsonNodes;
-    private final Transformer projection;
-    private final Set<TransportMode> allowedOsmModes;
+	private static final Logger LOGGER = Logger.getLogger(MapInitializer.class);
+	private final String geojsonEdges;
+	private final String geojsonNodes;
+	private final Transformer projection;
+	private final Set<TransportMode> allowedOsmModes;
 
-    @Inject
-    public MapInitializer(Transformer projection, @Named("geojson Edges") String geojsonEdges,
-            @Named("geojson Nodes") String geojsonNodes, Set<TransportMode> allowedOsmModes) {
-        this.projection = projection;
-        this.allowedOsmModes = allowedOsmModes;
-        this.geojsonEdges = geojsonEdges;
-        this.geojsonNodes = geojsonNodes;
-    }
+	@Inject
+	public MapInitializer(Transformer projection, @Named("geojson Edges") String geojsonEdges,
+			@Named("geojson Nodes") String geojsonNodes, Set<TransportMode> allowedOsmModes) {
+		this.projection = projection;
+		this.allowedOsmModes = allowedOsmModes;
+		this.geojsonEdges = geojsonEdges;
+		this.geojsonNodes = geojsonNodes;
+	}
 
-    public MapData getMap() {
-        Map<GraphType, Graph<SimulationNode, SimulationEdge>> graphs = new HashMap<>();
-        removeTemporaryFiles();
+	public MapData getMap() {
+		Map<GraphType, Graph<SimulationNode, SimulationEdge>> graphs = new HashMap<>();
+		removeTemporaryFiles();
 
-        Importer importer = null;
-        if (geojsonEdges != null && geojsonNodes != null) {
-            File geojsonEdgesFile = new File(geojsonEdges);
-            File geojsonNodesFile = new File(geojsonNodes);
-            importer = new GeoJSONReader(geojsonEdges, geojsonNodes, projection);
-        }
+		Importer importer = null;
+		if (geojsonEdges != null && geojsonNodes != null) {
+			File geojsonEdgesFile = new File(geojsonEdges);
+			File geojsonNodesFile = new File(geojsonNodes);
+			importer = new GeoJSONReader(geojsonEdges, geojsonNodes, projection);
+		}
 
-        GraphCreator<SimulationNode, SimulationEdge> graphCreator = new GraphCreator(
-                true, true, importer, new SimulationNodeFactory(), new SimulationEdgeFactory());
+		GraphCreator<SimulationNode, SimulationEdge> graphCreator = new GraphCreator(
+				true, true, importer, new SimulationNodeFactory(), new SimulationEdgeFactory());
 
-        graphs.put(EGraphType.HIGHWAY, graphCreator.getMap());
+		graphs.put(EGraphType.HIGHWAY, graphCreator.getMap());
 
-        LOGGER.info("Graphs imported, highway graph details: " + graphs.get(EGraphType.HIGHWAY));
-        return MapDataGenerator.getMap(graphs);
-    }
+		LOGGER.info("Graphs imported, highway graph details: " + graphs.get(EGraphType.HIGHWAY));
+		return MapDataGenerator.getMap(graphs);
+	}
 
-    private String getExtension(String filename) {
-        return filename.substring(filename.length() - 3, filename.length());
-    }
+	private String getExtension(String filename) {
+		return filename.substring(filename.length() - 3, filename.length());
+	}
 
-    private void deleteTempFile(String filename) {
-        try {
-            File file = new File(filename);
+	private void deleteTempFile(String filename) {
+		try {
+			File file = new File(filename);
 
-            if (file.delete()) {
-                LOGGER.info(file.getName() + " is deleted!");
-            } else {
-                LOGGER.info("Delete operation is failed.");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+			if (file.delete()) {
+				LOGGER.info(file.getName() + " is deleted!");
+			} else {
+				LOGGER.info("Delete operation is failed.");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
-    private void removeTemporaryFiles() {
-        //System.out.println("Working Directory = " + System.getProperty("user.dir"));
-        File folder = new File(System.getProperty("user.dir"));
-        File[] listOfFiles = folder.listFiles();
-        for (int i = 0; i < listOfFiles.length; i++) {
-            //  System.out.println(listOfFiles[i].getName());
-            String extension = getExtension(listOfFiles[i].getName());
-            // System.out.println(extension);
-            if ("ser".equals(extension)) {
-                String absolutePath = folder + "/" + listOfFiles[i].getName();
-                //System.out.println(absolutePath);
-                deleteTempFile(absolutePath);
-            }
-        }
-    }
+	private void removeTemporaryFiles() {
+		//System.out.println("Working Directory = " + System.getProperty("user.dir"));
+		File folder = new File(System.getProperty("user.dir"));
+		File[] listOfFiles = folder.listFiles();
+		for (int i = 0; i < listOfFiles.length; i++) {
+			//  System.out.println(listOfFiles[i].getName());
+			String extension = getExtension(listOfFiles[i].getName());
+			// System.out.println(extension);
+			if ("ser".equals(extension)) {
+				String absolutePath = folder + "/" + listOfFiles[i].getName();
+				//System.out.println(absolutePath);
+				deleteTempFile(absolutePath);
+			}
+		}
+	}
 
 }

@@ -31,61 +31,61 @@ import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.elements
  */
 public class DriveAgent extends Agent implements Driver<PhysicalVehicle> {
 
-    private DelayData delayData;
+	private DelayData delayData;
 
-    private PhysicalVehicle drivenCar;
+	private PhysicalVehicle drivenCar;
 
-    private SimulationNode targetNode;
+	private SimulationNode targetNode;
 
-    public DriveAgent(String agentId, SimulationNode position) {
-        super(agentId, position);
-    }
+	public DriveAgent(String agentId, SimulationNode position) {
+		super(agentId, position);
+	}
 
-    @Override
-    public EntityType getType() {
-        return DemoType.DRIVER;
-    }
+	@Override
+	public EntityType getType() {
+		return DemoType.DRIVER;
+	}
 
-    @Override
-    public PhysicalVehicle getVehicle() {
-        return drivenCar;
-    }
+	@Override
+	public PhysicalVehicle getVehicle() {
+		return drivenCar;
+	}
 
-    @Override
-    public void startDriving(PhysicalVehicle vehicle) {
-        this.drivenCar = vehicle;
-        vehicle.setDriver(this);
-    }
+	@Override
+	public void startDriving(PhysicalVehicle vehicle) {
+		this.drivenCar = vehicle;
+		vehicle.setDriver(this);
+	}
 
-    @Override
-    public void endDriving() {
-        drivenCar.setDriver(null);
-        this.drivenCar = null;
-    }
+	@Override
+	public void endDriving() {
+		drivenCar.setDriver(null);
+		this.drivenCar = null;
+	}
 
-    @Override
-    public void setTargetNode(SimulationNode targetNode) {
-        this.targetNode = targetNode;
-    }
+	@Override
+	public void setTargetNode(SimulationNode targetNode) {
+		this.targetNode = targetNode;
+	}
 
-    @Override
-    public SimulationNode getTargetNode() {
-        return targetNode;
-    }
+	@Override
+	public SimulationNode getTargetNode() {
+		return targetNode;
+	}
 
-    @Override
-    public void setDelayData(DelayData delayData) {
-        this.delayData = delayData;
-    }
+	@Override
+	public void setDelayData(DelayData delayData) {
+		this.delayData = delayData;
+	}
 
-    @Override
-    public DelayData getDelayData() {
-        return delayData;
-    }
+	@Override
+	public DelayData getDelayData() {
+		return delayData;
+	}
 
-    @Override
-    public double getVelocity() {
-        return 15;
-    }
+	@Override
+	public double getVelocity() {
+		return 15;
+	}
 
 }

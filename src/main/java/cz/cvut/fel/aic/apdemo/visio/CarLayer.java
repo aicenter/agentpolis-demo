@@ -34,36 +34,36 @@ import java.awt.geom.Path2D;
  */
 public class CarLayer extends VehicleLayer<PhysicalVehicle> {
 
-    private Path2D CAR_REPRESENTATION_SHAPE;
+	private Path2D CAR_REPRESENTATION_SHAPE;
 
-    @Inject
-    public CarLayer(VehicleStorage vehicleStorage, AgentpolisConfig agentpolisConfig) {
-        super(vehicleStorage, agentpolisConfig);
-    }
+	@Inject
+	public CarLayer(VehicleStorage vehicleStorage, AgentpolisConfig agentpolisConfig) {
+		super(vehicleStorage, agentpolisConfig);
+	}
 
-    @Override
-    protected Color getEntityDrawColor(PhysicalVehicle vehicle) {
-        return Color.MAGENTA;
-    }
+	@Override
+	protected Color getEntityDrawColor(PhysicalVehicle vehicle) {
+		return Color.MAGENTA;
+	}
    
-    @Override
-    protected float getVehicleStaticLength(PhysicalVehicle vehicle) {
-        return (float) vehicle.getLength();
-    }
-    
-    @Override
-    protected float getVehicleStaticWidth(PhysicalVehicle vehicle) {
-        return 2;
-    }
-    
-    @Override
-    protected float getVehicleWidth(PhysicalVehicle vehicle) {
-        return 2;
-    }
+	@Override
+	protected float getVehicleStaticLength(PhysicalVehicle vehicle) {
+		return (float) vehicle.getLength();
+	}
+	
+	@Override
+	protected float getVehicleStaticWidth(PhysicalVehicle vehicle) {
+		return 2;
+	}
+	
+	@Override
+	protected float getVehicleWidth(PhysicalVehicle vehicle) {
+		return 2;
+	}
 
-    @Override
-    protected float getVehicleLength(PhysicalVehicle vehicle) {
-        return (float) vehicle.getLength();
-    }
+	@Override
+	protected float getVehicleLength(PhysicalVehicle vehicle) {
+		return (float) vehicle.getLength();
+	}
 
 }

@@ -31,27 +31,27 @@ import java.util.LinkedList;
  */
 public class TimeTrip<L> extends Trip<L> {
 
-    @JsonCreator
-    public TimeTrip(@JsonProperty("locations") LinkedList<L> locations, @JsonProperty("startTime") long startTime,
-            @JsonProperty("endTime") long endTime) {
-        super(locations);
-    }
+	@JsonCreator
+	public TimeTrip(@JsonProperty("locations") LinkedList<L> locations, @JsonProperty("startTime") long startTime,
+			@JsonProperty("endTime") long endTime) {
+		super(locations);
+	}
 
-    public TimeTrip(L startLocation, L endLocation, long startTime) {
-        super(startLocation, endLocation);
+	public TimeTrip(L startLocation, L endLocation, long startTime) {
+		super(startLocation, endLocation);
 
-    }
+	}
 
-    @Override
-    @JsonIgnore
-    public L getAndRemoveFirstLocation() {
-        return super.getAndRemoveFirstLocation();
-    }
+	@Override
+	@JsonIgnore
+	public L getAndRemoveFirstLocation() {
+		return super.getAndRemoveFirstLocation();
+	}
 
-    @JsonIgnore
-    @Override
-    public boolean isEmpty() {
-        return super.isEmpty();
-    }
+	@JsonIgnore
+	@Override
+	public boolean isEmpty() {
+		return super.isEmpty();
+	}
 
 }

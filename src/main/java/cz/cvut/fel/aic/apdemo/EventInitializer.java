@@ -44,73 +44,73 @@ import java.util.Random;
 @Singleton
 public class EventInitializer {
 
-    private static final int RANDOM_SEED = 1;
-    private final EventProcessor eventProcessor;
-    private final DemandEventHandler demandEventHandler;
-    private final ApdemoConfig config;
-    private final Graph<SimulationNode, SimulationEdge> graph;
+	private static final int RANDOM_SEED = 1;
+	private final EventProcessor eventProcessor;
+	private final DemandEventHandler demandEventHandler;
+	private final ApdemoConfig config;
+	private final Graph<SimulationNode, SimulationEdge> graph;
 	
 	private final SimulationUtils simulationUtils;
 	
 	
 
-    @Inject
-    public EventInitializer(EventProcessor eventProcessor, ApdemoConfig config,
-            DemandEventHandler demandEventHandler, TransportNetworks network, SimulationUtils simulationUtils) {
-        this.eventProcessor = eventProcessor;
-        this.demandEventHandler = demandEventHandler;
-        this.config = config;
+	@Inject
+	public EventInitializer(EventProcessor eventProcessor, ApdemoConfig config,
+			DemandEventHandler demandEventHandler, TransportNetworks network, SimulationUtils simulationUtils) {
+		this.eventProcessor = eventProcessor;
+		this.demandEventHandler = demandEventHandler;
+		this.config = config;
 		this.simulationUtils = simulationUtils;
-        this.graph = network.getGraph(EGraphType.HIGHWAY);
-    }
+		this.graph = network.getGraph(EGraphType.HIGHWAY);
+	}
 
-    private static final int NUMBER_OF_TRIPS = 2000;
+	private static final int NUMBER_OF_TRIPS = 2000;
 
-    public void initialize() {
+	public void initialize() {
 
-        Random rand = new Random(RANDOM_SEED);
-        List nodes = (List) this.graph.getAllNodes();
+		Random rand = new Random(RANDOM_SEED);
+		List nodes = (List) this.graph.getAllNodes();
 
-        for (int i = 0; i < NUMBER_OF_TRIPS; i++) {
-            long startTime = 1 + rand.nextInt((int) (simulationUtils.computeSimulationDuration() + 1));
+		for (int i = 0; i < NUMBER_OF_TRIPS; i++) {
+			long startTime = 1 + rand.nextInt((int) (simulationUtils.computeSimulationDuration() + 1));
 
-            SimulationNode startNode;
-            SimulationNode destNode;
-            do {
-                startNode = (SimulationNode) nodes.get(rand.nextInt(nodes.size()));
-                destNode = (SimulationNode) nodes.get(rand.nextInt(nodes.size()));
-            } while(startNode.equals(destNode));
+			SimulationNode startNode;
+			SimulationNode destNode;
+			do {
+				startNode = (SimulationNode) nodes.get(rand.nextInt(nodes.size()));
+				destNode = (SimulationNode) nodes.get(rand.nextInt(nodes.size()));
+			} while(startNode.equals(destNode));
 
-            eventProcessor.addEvent(null, demandEventHandler, null, new TimeTrip<SimulationNode>(startNode, destNode, startTime), startTime);
-        }
-    }
+			eventProcessor.addEvent(null, demandEventHandler, null, new TimeTrip<SimulationNode>(startNode, destNode, startTime), startTime);
+		}
+	}
 
-    public static class DemandEventHandler extends EventHandlerAdapter {
+	public static class DemandEventHandler extends EventHandlerAdapter {
 
-        private final StandardDriveFactory congestedDriveFactory;
-        private final VehicleStorage vehicleStorage;
-        private static int COUNTER_ID = 0;
+		private final StandardDriveFactory congestedDriveFactory;
+		private final VehicleStorage vehicleStorage;
+		private static int COUNTER_ID = 0;
 
-        @Inject
-        public DemandEventHandler(
-                 StandardDriveFactory congestedDriveFactory, VehicleStorage vehicleStorage) {
-            this.congestedDriveFactory = congestedDriveFactory;
-            this.vehicleStorage = vehicleStorage;
-        }
+		@Inject
+		public DemandEventHandler(
+				 StandardDriveFactory congestedDriveFactory, VehicleStorage vehicleStorage) {
+			this.congestedDriveFactory = congestedDriveFactory;
+			this.vehicleStorage = vehicleStorage;
+		}
 
-        @Override
-        public void handleEvent(Event event) {
-            Trip<SimulationNode> trip = (Trip) event.getContent();
-            LinkedList nodes = trip.getLocations();
-            SimulationNode startNode = (SimulationNode) nodes.get(0);
-            SimulationNode finishNode = (SimulationNode) nodes.get(1);
+		@Override
+		public void handleEvent(Event event) {
+			Trip<SimulationNode> trip = (Trip) event.getContent();
+			LinkedList nodes = trip.getLocations();
+			SimulationNode startNode = (SimulationNode) nodes.get(0);
+			SimulationNode finishNode = (SimulationNode) nodes.get(1);
 
-            PhysicalVehicle vehicle = new PhysicalVehicle("Test vehicle " + COUNTER_ID, DemoType.VEHICLE, 4, EGraphType.HIGHWAY, startNode, 15);
-            DriveAgent driveAgent = new DriveAgent("Test driver " + COUNTER_ID, startNode);
+			PhysicalVehicle vehicle = new PhysicalVehicle("Test vehicle " + COUNTER_ID, DemoType.VEHICLE, 4, EGraphType.HIGHWAY, startNode, 15);
+			DriveAgent driveAgent = new DriveAgent("Test driver " + COUNTER_ID, startNode);
 
-            congestedDriveFactory.create(driveAgent, vehicle, finishNode).run();
-            vehicleStorage.addEntity(driveAgent.getVehicle());
-            COUNTER_ID++;
-        }
-    }
+			congestedDriveFactory.create(driveAgent, vehicle, finishNode).run();
+			vehicleStorage.addEntity(driveAgent.getVehicle());
+			COUNTER_ID++;
+		}
+	}
 }

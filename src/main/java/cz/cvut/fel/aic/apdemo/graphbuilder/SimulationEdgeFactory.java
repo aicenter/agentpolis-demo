@@ -17,15 +17,15 @@ import cz.cvut.fel.aic.graphimporter.structurebuilders.internal.InternalEdge;
  */
 public class SimulationEdgeFactory implements EdgeFactory<SimulationNode, SimulationEdge> {
 
-    @Override
-    public SimulationEdge createEdge(InternalEdge internalEdge, GraphBuilder<SimulationNode,SimulationEdge> graphBuilder) {
-        EdgeShape shape = new EdgeShape(internalEdge.get("coordinateList"));
-        SimulationNode fromNode = graphBuilder.getNode(internalEdge.fromNode.getId());
-        SimulationNode toNode = graphBuilder.getNode(internalEdge.toNode.getId());
-        return new SimulationEdge(fromNode, toNode, internalEdge.get("wayID"),
-                internalEdge.get("uniqueWayID"), internalEdge.get("oppositeWayUniqueId"), internalEdge.getLength(),
-                internalEdge.get("allowedMaxSpeedInMpS"),
-                internalEdge.get("lanesCount"), shape);
-    }
+	@Override
+	public SimulationEdge createEdge(InternalEdge internalEdge, GraphBuilder<SimulationNode,SimulationEdge> graphBuilder) {
+		EdgeShape shape = new EdgeShape(internalEdge.get("coordinateList"));
+		SimulationNode fromNode = graphBuilder.getNode(internalEdge.fromNode.getId());
+		SimulationNode toNode = graphBuilder.getNode(internalEdge.toNode.getId());
+		return new SimulationEdge(fromNode, toNode, internalEdge.get("wayID"),
+				internalEdge.get("uniqueWayID"), internalEdge.get("oppositeWayUniqueId"), internalEdge.getLength(),
+				internalEdge.get("allowedMaxSpeedInMpS"),
+				internalEdge.get("lanesCount"), shape);
+	}
 
 }

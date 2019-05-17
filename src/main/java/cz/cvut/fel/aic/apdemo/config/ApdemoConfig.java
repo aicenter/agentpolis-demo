@@ -13,8 +13,8 @@ public class ApdemoConfig implements GeneratedConfig {
   }
 
   public ApdemoConfig fill(Map apdemoConfig) {
-    this.mapGeojsonEdges = (String) apdemoConfig.get("map_geojson_edges");
-    this.mapGeojsonNodes = (String) apdemoConfig.get("map_geojson_nodes");
-    return this;
+	this.mapGeojsonEdges = (String) apdemoConfig.get("map_geojson_edges");
+	this.mapGeojsonNodes = (String) apdemoConfig.get("map_geojson_nodes");
+	return this;
   }
 }

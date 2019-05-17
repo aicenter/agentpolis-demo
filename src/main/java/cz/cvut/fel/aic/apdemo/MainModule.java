@@ -32,26 +32,26 @@ import java.util.Set;
 
 public class MainModule extends StandardAgentPolisModule {
 
-    private final ApdemoConfig config;
+	private final ApdemoConfig config;
 
-    public MainModule(ApdemoConfig apdemoConfig, File localConfigFile) {
-        super(apdemoConfig, localConfigFile, "agentpolis");
-        this.config = apdemoConfig;
-    }
+	public MainModule(ApdemoConfig apdemoConfig, File localConfigFile) {
+		super(apdemoConfig, localConfigFile, "agentpolis");
+		this.config = apdemoConfig;
+	}
 
-    @Override
-    protected void bindVisioInitializer() {
-        bind(VisioInitializer.class).to(DemoVisioInItializer.class);
-    }
+	@Override
+	protected void bindVisioInitializer() {
+		bind(VisioInitializer.class).to(DemoVisioInItializer.class);
+	}
 
-    @Override
-    protected void configureNext() {
+	@Override
+	protected void configureNext() {
 
-        bind(String.class).annotatedWith(Names.named("geojson Edges")).toInstance(this.config.mapGeojsonEdges);
-        bind(String.class).annotatedWith(Names.named("geojson Nodes")).toInstance(this.config.mapGeojsonNodes);
+		bind(String.class).annotatedWith(Names.named("geojson Edges")).toInstance(this.config.mapGeojsonEdges);
+		bind(String.class).annotatedWith(Names.named("geojson Nodes")).toInstance(this.config.mapGeojsonNodes);
 
-        bind(new TypeLiteral<Set<TransportMode>>() {
-        }).toInstance(Sets.immutableEnumSet(TransportMode.CAR));
-        bind(ApdemoConfig.class).toInstance(this.config);
-    }
+		bind(new TypeLiteral<Set<TransportMode>>() {
+		}).toInstance(Sets.immutableEnumSet(TransportMode.CAR));
+		bind(ApdemoConfig.class).toInstance(this.config);
+	}
 }

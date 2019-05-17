@@ -39,56 +39,56 @@ import java.awt.Color;
 @Singleton
 public class DemoVisioInItializer extends DefaultVisioInitializer {
 
-    protected final NodeIdLayer nodeIdLayer;
-    protected final HighwayLayer highwayLayer;
-    private final VisLayer backgroundLayer;
-    private final CarLayer carLayer;
-    private final MapTilesLayer mapTilesLayer;
-    private final LayerManagementLayer layerManagementLayer;
+	protected final NodeIdLayer nodeIdLayer;
+	protected final HighwayLayer highwayLayer;
+	private final VisLayer backgroundLayer;
+	private final CarLayer carLayer;
+	private final MapTilesLayer mapTilesLayer;
+	private final LayerManagementLayer layerManagementLayer;
 
-    @Inject
-    public DemoVisioInItializer(Simulation simulation, PedestrianNetwork pedestrianNetwork, BikewayNetwork bikewayNetwork,
-                                HighwayNetwork highwayNetwork, TramwayNetwork tramwayNetwork, MetrowayNetwork metrowayNetwork,
-                                RailwayNetwork railwayNetwork, NodeIdLayer nodeIdLayer, HighwayLayer highwayLayer,
-                                SimulationControlLayer simulationControlLayer, GridLayer gridLayer, CarLayer carLayer, MapTilesLayer mapTiles, AgentpolisConfig config,
-                                LayerManagementLayer layerManagementLayer) {
-        super(simulation, pedestrianNetwork, bikewayNetwork, highwayNetwork, tramwayNetwork, metrowayNetwork, railwayNetwork,
-                simulationControlLayer, gridLayer, config);
-        this.nodeIdLayer = nodeIdLayer;
-        this.highwayLayer = highwayLayer;
-        this.carLayer = carLayer;
-        this.backgroundLayer = ColorLayer.create(Color.white);
-        this.mapTilesLayer = mapTiles;
-        this.layerManagementLayer = layerManagementLayer;
-    }
+	@Inject
+	public DemoVisioInItializer(Simulation simulation, PedestrianNetwork pedestrianNetwork, BikewayNetwork bikewayNetwork,
+								HighwayNetwork highwayNetwork, TramwayNetwork tramwayNetwork, MetrowayNetwork metrowayNetwork,
+								RailwayNetwork railwayNetwork, NodeIdLayer nodeIdLayer, HighwayLayer highwayLayer,
+								SimulationControlLayer simulationControlLayer, GridLayer gridLayer, CarLayer carLayer, MapTilesLayer mapTiles, AgentpolisConfig config,
+								LayerManagementLayer layerManagementLayer) {
+		super(simulation, pedestrianNetwork, bikewayNetwork, highwayNetwork, tramwayNetwork, metrowayNetwork, railwayNetwork,
+				simulationControlLayer, gridLayer, config);
+		this.nodeIdLayer = nodeIdLayer;
+		this.highwayLayer = highwayLayer;
+		this.carLayer = carLayer;
+		this.backgroundLayer = ColorLayer.create(Color.white);
+		this.mapTilesLayer = mapTiles;
+		this.layerManagementLayer = layerManagementLayer;
+	}
 
-    @Override
-    protected void initEntityLayers(Simulation simulation) {
-        VisManager.registerLayer(layerManagementLayer.createManageableLayer("Maptiles", mapTilesLayer));
-        ManageableLayer manageableHighwayLayer = layerManagementLayer.createManageableLayer("Highway layer", highwayLayer);  
-        manageableHighwayLayer.toggle();
-        VisManager.registerLayer(manageableHighwayLayer);    
-        VisManager.registerLayer(layerManagementLayer.createManageableLayer("Vehicles", carLayer));
-        ManageableLayer manageableNodeIdLayer = layerManagementLayer.createManageableLayer("Node ID layer", nodeIdLayer);  
-        manageableNodeIdLayer.toggle();
-        VisManager.registerLayer(manageableNodeIdLayer);
-    }
+	@Override
+	protected void initEntityLayers(Simulation simulation) {
+		VisManager.registerLayer(layerManagementLayer.createManageableLayer("Maptiles", mapTilesLayer));
+		ManageableLayer manageableHighwayLayer = layerManagementLayer.createManageableLayer("Highway layer", highwayLayer);  
+		manageableHighwayLayer.toggle();
+		VisManager.registerLayer(manageableHighwayLayer);	
+		VisManager.registerLayer(layerManagementLayer.createManageableLayer("Vehicles", carLayer));
+		ManageableLayer manageableNodeIdLayer = layerManagementLayer.createManageableLayer("Node ID layer", nodeIdLayer);  
+		manageableNodeIdLayer.toggle();
+		VisManager.registerLayer(manageableNodeIdLayer);
+	}
 
-    @Override
-    protected void initLayersBeforeEntityLayers() {
-    }
+	@Override
+	protected void initLayersBeforeEntityLayers() {
+	}
 
-    @Override
-    protected void initLayersAfterEntityLayers() {
-        VisManager.registerLayer(layerManagementLayer);
-    }
+	@Override
+	protected void initLayersAfterEntityLayers() {
+		VisManager.registerLayer(layerManagementLayer);
+	}
 
-    @Override
-    protected void initGraphLayers() {
-        VisManager.registerLayer(backgroundLayer);
-        /*
-        VisManager.registerLayer(KeyToggleLayer.create("h", true, highwayLayer));
-        VisManager.registerLayer(KeyToggleLayer.create("n", true, nodeIdLayer));*/
-    }
+	@Override
+	protected void initGraphLayers() {
+		VisManager.registerLayer(backgroundLayer);
+		/*
+		VisManager.registerLayer(KeyToggleLayer.create("h", true, highwayLayer));
+		VisManager.registerLayer(KeyToggleLayer.create("n", true, nodeIdLayer));*/
+	}
 
 }

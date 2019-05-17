@@ -32,11 +32,11 @@ import cz.cvut.fel.aic.agentpolis.simmodel.entity.EntityType;
  * @author fido
  */
 public enum DemoType implements EntityType {
-    VEHICLE,
-    DRIVER;
+	VEHICLE,
+	DRIVER;
 
-    @Override
-    public String getDescriptionEntityType() {
-        return "";
-    }
+	@Override
+	public String getDescriptionEntityType() {
+		return "";
+	}
 }

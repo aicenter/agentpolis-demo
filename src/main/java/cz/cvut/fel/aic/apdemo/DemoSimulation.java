@@ -28,25 +28,25 @@ import java.net.MalformedURLException;
 
 public class DemoSimulation {
 
-    public static void main(String[] args) throws MalformedURLException {
-        new DemoSimulation().run(args);
-    }
+	public static void main(String[] args) throws MalformedURLException {
+		new DemoSimulation().run(args);
+	}
 
-    public void run(String[] args) {
+	public void run(String[] args) {
 
-        ApdemoConfig config = new ApdemoConfig();
+		ApdemoConfig config = new ApdemoConfig();
 
-        File localConfigFile = null;
-        if (args.length > 0) {
-            localConfigFile = new File(args[0]);
-        }
+		File localConfigFile = null;
+		if (args.length > 0) {
+			localConfigFile = new File(args[0]);
+		}
 
-        Injector injector = new AgentPolisInitializer(new MainModule(config, localConfigFile)).initialize();
+		Injector injector = new AgentPolisInitializer(new MainModule(config, localConfigFile)).initialize();
 
-        SimulationCreator creator = injector.getInstance(SimulationCreator.class);
-        creator.prepareSimulation(injector.getInstance(MapInitializer.class).getMap());
-        injector.getInstance(EventInitializer.class).initialize();
+		SimulationCreator creator = injector.getInstance(SimulationCreator.class);
+		creator.prepareSimulation(injector.getInstance(MapInitializer.class).getMap());
+		injector.getInstance(EventInitializer.class).initialize();
 
-        creator.startSimulation();
-    }
+		creator.startSimulation();
+	}
 }
