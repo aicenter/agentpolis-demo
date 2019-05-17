@@ -47,7 +47,6 @@ public class MainModule extends StandardAgentPolisModule {
     @Override
     protected void configureNext() {
 
-        bind(String.class).annotatedWith(Names.named("osm File")).toInstance(this.config.mapFilePath);
         bind(String.class).annotatedWith(Names.named("geojson Edges")).toInstance(this.config.mapGeojsonEdges);
         bind(String.class).annotatedWith(Names.named("geojson Nodes")).toInstance(this.config.mapGeojsonNodes);
 

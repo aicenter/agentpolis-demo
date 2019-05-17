@@ -23,7 +23,7 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.elements.SimulationEdge;
 import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.networks.HighwayNetwork;
-import cz.cvut.fel.aic.agentpolis.simulator.visualization.visio.PositionUtil;
+import cz.cvut.fel.aic.agentpolis.simulator.visualization.visio.VisioPositionUtil;
 import cz.cvut.fel.aic.alite.vis.Vis;
 import cz.cvut.fel.aic.geographtools.GPSLocation;
 import cz.cvut.fel.aic.geographtools.GraphSpec2D;
@@ -50,7 +50,7 @@ public class BufferedHighwayLayer extends HighwayLayer {
     private final GraphSpec2D mapSpecification;
 
     @Inject
-    public BufferedHighwayLayer(HighwayNetwork highwayNetwork, PositionUtil positionUtil, GraphSpec2D mapSpecification) {
+    public BufferedHighwayLayer(HighwayNetwork highwayNetwork, VisioPositionUtil positionUtil, GraphSpec2D mapSpecification) {
         super(highwayNetwork, positionUtil);
         scale = DEFAULT_SCALE;
         this.mapSpecification = mapSpecification;

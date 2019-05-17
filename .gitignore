@@ -14,5 +14,7 @@ osmfilter*
 
 maptiles/
 ademo_virtenv/
+data/
+map/
 
 

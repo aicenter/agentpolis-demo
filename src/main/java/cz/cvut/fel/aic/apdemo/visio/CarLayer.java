@@ -53,12 +53,12 @@ public class CarLayer extends VehicleLayer<PhysicalVehicle> {
     
     @Override
     protected float getVehicleStaticWidth(PhysicalVehicle vehicle) {
-        return 8;
+        return 2;
     }
     
     @Override
     protected float getVehicleWidth(PhysicalVehicle vehicle) {
-        return 8;
+        return 2;
     }
 
     @Override
