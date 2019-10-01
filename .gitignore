@@ -15,8 +15,5 @@ osmfilter*
 maptiles/
 data/
 map/
-*.*
 apdemo_virtenv/
 .ipynb_checkpoints/
-
-
