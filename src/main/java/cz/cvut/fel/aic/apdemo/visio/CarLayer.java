@@ -48,7 +48,7 @@ public class CarLayer extends VehicleLayer<PhysicalVehicle> {
    
 	@Override
 	protected float getVehicleStaticLength(PhysicalVehicle vehicle) {
-		return (float) vehicle.getLength();
+		return (float) vehicle.getLengthM();
 	}
 	
 	@Override
@@ -63,7 +63,7 @@ public class CarLayer extends VehicleLayer<PhysicalVehicle> {
 
 	@Override
 	protected float getVehicleLength(PhysicalVehicle vehicle) {
-		return (float) vehicle.getLength();
+		return (float) vehicle.getLengthM();
 	}
 
 }

@@ -21,6 +21,8 @@ package cz.cvut.fel.aic.apdemo;
 import com.google.common.collect.Sets;
 import com.google.inject.TypeLiteral;
 import com.google.inject.name.Names;
+import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.init.GeojsonMapInitializer;
+import cz.cvut.fel.aic.agentpolis.simmodel.environment.transportnetwork.init.MapInitializer;
 import cz.cvut.fel.aic.agentpolis.simulator.visualization.visio.VisioInitializer;
 import cz.cvut.fel.aic.agentpolis.system.StandardAgentPolisModule;
 import cz.cvut.fel.aic.apdemo.config.ApdemoConfig;
@@ -53,5 +55,6 @@ public class MainModule extends StandardAgentPolisModule {
 		bind(new TypeLiteral<Set<TransportMode>>() {
 		}).toInstance(Sets.immutableEnumSet(TransportMode.CAR));
 		bind(ApdemoConfig.class).toInstance(this.config);
+		bind(MapInitializer.class).to(GeojsonMapInitializer.class);
 	}
 }
