@@ -16,7 +16,7 @@ maptiles/
 data/
 map/
 *.*
-apdemo_virtenv
+apdemo_virtenv/
 .ipynb_checkpoints/
 
 
