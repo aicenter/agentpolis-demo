@@ -13,8 +13,10 @@ osmfilter*
 *.pyc
 
 maptiles/
-ademo_virtenv/
 data/
 map/
+*.*
+apdemo_virtenv
+.ipynb_checkpoints/
 
 
