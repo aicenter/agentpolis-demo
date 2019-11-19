@@ -32,8 +32,8 @@ import java.util.LinkedList;
 public class TimeTrip<L> extends Trip<L> {
 
 	@JsonCreator
-	public TimeTrip(@JsonProperty("locations") LinkedList<L> locations, @JsonProperty("startTime") long startTime,
-			@JsonProperty("endTime") long endTime) {
+	public TimeTrip(@JsonProperty("startTime") long startTime, @JsonProperty("endTime") long endTime, 
+			@JsonProperty("locations") L... locations) {
 		super(locations);
 	}
 
@@ -44,8 +44,8 @@ public class TimeTrip<L> extends Trip<L> {
 
 	@Override
 	@JsonIgnore
-	public L getAndRemoveFirstLocation() {
-		return super.getAndRemoveFirstLocation();
+	public L removeFirstLocation() {
+		return super.removeFirstLocation();
 	}
 
 	@JsonIgnore

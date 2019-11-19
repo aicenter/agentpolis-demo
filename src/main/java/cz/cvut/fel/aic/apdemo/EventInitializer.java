@@ -101,9 +101,9 @@ public class EventInitializer {
 		@Override
 		public void handleEvent(Event event) {
 			Trip<SimulationNode> trip = (Trip) event.getContent();
-			LinkedList nodes = trip.getLocations();
-			SimulationNode startNode = (SimulationNode) nodes.get(0);
-			SimulationNode finishNode = (SimulationNode) nodes.get(1);
+			Object[] nodes = trip.getLocations();
+			SimulationNode startNode = (SimulationNode) nodes[0];
+			SimulationNode finishNode = (SimulationNode) nodes[1];
 
 			PhysicalVehicle vehicle = new PhysicalVehicle("Test vehicle " + COUNTER_ID, DemoType.VEHICLE, 4, EGraphType.HIGHWAY, startNode, 15);
 			DriveAgent driveAgent = new DriveAgent("Test driver " + COUNTER_ID, startNode);
