@@ -52,8 +52,7 @@ public class DemoVisioInItializer extends DefaultVisioInitializer {
 								RailwayNetwork railwayNetwork, NodeIdLayer nodeIdLayer, HighwayLayer highwayLayer,
 								SimulationControlLayer simulationControlLayer, GridLayer gridLayer, CarLayer carLayer, MapTilesLayer mapTiles, AgentpolisConfig config,
 								LayerManagementLayer layerManagementLayer) {
-		super(simulation, pedestrianNetwork, bikewayNetwork, highwayNetwork, tramwayNetwork, metrowayNetwork, railwayNetwork,
-				simulationControlLayer, gridLayer, config);
+		super(simulation, highwayNetwork, simulationControlLayer, gridLayer);
 		this.nodeIdLayer = nodeIdLayer;
 		this.highwayLayer = highwayLayer;
 		this.carLayer = carLayer;

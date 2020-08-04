@@ -1,3 +1,9 @@
+# 3.0.0
+
+## Changed
+- AP dependency changed to AP 7 through new parent
+
+
 # 2.0.0
 
 ## Fixed
