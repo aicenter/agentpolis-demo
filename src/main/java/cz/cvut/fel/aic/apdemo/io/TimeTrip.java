@@ -34,11 +34,11 @@ public class TimeTrip<L> extends Trip<L> {
 	@JsonCreator
 	public TimeTrip(@JsonProperty("startTime") long startTime, @JsonProperty("endTime") long endTime, 
 			@JsonProperty("locations") L... locations) {
-		super(locations);
+		super(0,locations);
 	}
 
 	public TimeTrip(L startLocation, L endLocation, long startTime) {
-		super(startLocation, endLocation);
+		super(0,startLocation, endLocation);
 
 	}
 
